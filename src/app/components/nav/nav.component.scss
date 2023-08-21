@@ -1,26 +1,29 @@
-.container-fluid{
+.container-fluid {
   background-color: white;
 }
 
-.menu{
+.menu {
   font-size: 30px;
   color: grey;
-  }
-.img-cont{
+}
+.img-cont {
   width: 40px;
-  }
-#profile-pic{
+}
+#profile-pic {
   border-radius: 50%;
   border: 1px solid black;
-  }
-p{
+}
+p {
   font-size: 0.8em;
-  }
-.section:hover{
+}
+.section:hover {
   cursor: pointer;
-  }
-input{
-  background:rgb(237, 243, 248) url("../../../assets/img/search.svg") no-repeat;
+}
+input {
+  background: rgb(237, 243, 248) url("../../../assets/img/search.svg") no-repeat;
   background-position-y: center;
   background-position-x: 0.2em;
-  }
+}
+i:hover {
+  color: black;
+}

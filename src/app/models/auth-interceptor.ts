@@ -6,6 +6,7 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {environment} from "../../environments/environment";
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -15,7 +16,7 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
     let newRequest = request.clone({
-      headers: request.headers.set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGUzMTQ5ODFmMTc1YzAwMTRjNTU4YzUiLCJpYXQiOjE2OTI2MDM1NDQsImV4cCI6MTY5MzgxMzE0NH0.C7V4YeMJUDOKFb22KMObyy1n4VdVkNsHVKGLxOnJqNE')
+      headers: request.headers.set('Authorization', environment.API_KEY )
     })
 
     return next.handle(newRequest);

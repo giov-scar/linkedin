@@ -24,7 +24,7 @@
         <p class="m-0">Notifications</p>
       </div>
       <div class="img-cont d-flex justify-content-end align-items-center flex-column section gap-2">
-        <img id="profile-pic" [src]="data.image" alt="profilepic" class="w-75">
+        <img *ngIf="data" id="profile-pic" [src]="data.image" alt="profilepic" class="w-75">
         <p class="m-0">Me <i class="bi bi-caret-down-fill"></i></p>
       </div>
     </div>

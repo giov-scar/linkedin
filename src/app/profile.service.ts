@@ -9,6 +9,7 @@ import { HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { environment } from '../environments/environment';
+import { IApiResp } from './models/iapi-resp';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +17,15 @@ import { environment } from '../environments/environment';
 export class ProfileService {
   constructor(private http: HttpClient, private router: Router) {}
 
-  getAllProfile() {
-    return this.http.get(`${environment.BASE_URL}me`);
+  getAllProfile(): Observable<IApiResp> {
+    return this.http.get<IApiResp>(`${environment.BASE_URL}`);
+  }
+
+  getMyProfile(): Observable<IApiResp> {
+    return this.http.get<IApiResp>(`${environment.BASE_URL}me`);
+  }
+
+  getSpecificProfile(id: string): Observable<IApiResp> {
+    return this.http.get<IApiResp>(`${environment.BASE_URL}${id}`);
   }
 }

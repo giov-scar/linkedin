@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ProfileService} from "../../profile.service";
 import {Observable} from "rxjs";
+import {IApiResp} from "../../models/iapi-resp";
 
 
 @Component({
@@ -8,12 +9,29 @@ import {Observable} from "rxjs";
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss']
 })
-export class ProfileComponent {
-  constructor(private profileSvc:ProfileService) {
-    this.getAll()
+export class ProfileComponent implements OnInit{
+  data!: IApiResp
+
+  constructor(private profileSvc: ProfileService) {
+
   }
-  getAll(){
-    this.profileSvc.getAllProfile().subscribe(data=>console.log(data))
+  ngOnInit() {
+    this.getSpecific()
+     // this.getAll()
   }
+
+  getAll() {
+    this.profileSvc.getAllProfile().subscribe(data => {
+      console.log(data)
+      this.data = data
+    })
+  }
+
+   getSpecific() {
+     this.profileSvc.getSpecificProfile('60fab669fab8670015d6bc99').subscribe(data => {
+       console.log(data)
+       this.data = data
+     })
+   }
 
 }

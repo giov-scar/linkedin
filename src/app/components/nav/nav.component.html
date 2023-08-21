@@ -2,29 +2,54 @@
   <div class="row align-items-center justify-content-center">
     <div class="col-5">
       <form class="d-flex" role="search">
-        <img src="../../../assets/img/icons8-linkedin-48.png" alt="logo">
-        <input class="form-control me-2" type="search" placeholder="    Search" aria-label="Search">
+        <img src="../../../assets/img/icons8-linkedin-48.png" alt="logo" />
+        <input
+          class="form-control me-2"
+          type="search"
+          placeholder="    Search"
+          aria-label="Search"
+        />
       </form>
     </div>
     <div class="col-6 d-flex gap-5">
-      <div class="d-flex justify-content-center align-items-center flex-column section">
+      <div
+        class="d-flex justify-content-center align-items-center flex-column section"
+        routerLink="/home"
+      >
         <i class="bi bi-house-door-fill menu"></i>
         <p class="m-0">Home</p>
       </div>
-      <div class="d-flex justify-content-center align-items-center flex-column section">
+      <div
+        class="d-flex justify-content-center align-items-center flex-column section"
+        routerLink="/my-network"
+      >
         <i class="bi bi-people-fill menu"></i>
         <p class="m-0">My Network</p>
       </div>
-      <div class="d-flex justify-content-center align-items-center flex-column section">
+      <div
+        class="d-flex justify-content-center align-items-center flex-column section"
+        routerLink="/jobs"
+      >
         <i class="bi bi-briefcase-fill menu"></i>
         <p class="m-0">Jobs</p>
       </div>
-      <div class="d-flex justify-content-center align-items-center flex-column section">
+      <div
+        class="d-flex justify-content-center align-items-center flex-column section"
+        routerLink="/notifications"
+      >
         <i class="bi bi-chat-dots-fill menu"></i>
         <p class="m-0">Notifications</p>
       </div>
-      <div class="img-cont d-flex justify-content-end align-items-center flex-column section gap-2">
-        <img id="profile-pic" src="../../../assets/img/profile.jpg" alt="profilepic" class="w-75">
+      <div
+        class="img-cont d-flex justify-content-end align-items-center flex-column section gap-2"
+        routerLink="/user-profile"
+      >
+        <img
+          id="profile-pic"
+          src="../../../assets/img/profile.jpg"
+          alt="profilepic"
+          class="w-75"
+        />
         <p class="m-0">Me <i class="bi bi-caret-down-fill"></i></p>
       </div>
     </div>

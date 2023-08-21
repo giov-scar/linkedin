@@ -17,10 +17,7 @@ export class AuthInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
     let newRequest = request.clone({
-      headers: request.headers.set(
-        'Authorization',
-        'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGUzMTI2YzFmMTc1YzAwMTRjNTU4YmUiLCJpYXQiOjE2OTI2MDI5ODgsImV4cCI6MTY5MzgxMjU4OH0.tw_FBF69PPmRf_AuQIMSizjvTGanmHhw4XcBEGXJ8J8'
-      ),
+      headers: request.headers.set('Authorization', environment.API_KEY),
     });
 
     return next.handle(newRequest);

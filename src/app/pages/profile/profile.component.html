@@ -1,2 +1,49 @@
-<p>profile works!</p>
-<p *ngIf="data">{{data.username}}</p>
+<div class="container">
+  <div class="row">
+    <div class="col col-9 mx-auto mt-3 border rounded-3 p-0" id="box1">
+      <div id="box-img">
+      <img src="https://marketplace.canva.com/EAE2cQaUHVA/1/0/1600w/canva-black-minimal-motivation-quote-linkedin-banner-HoRi-2buBWk.jpg" alt="cover" class="img-fluid rounded-top-2">
+      <div id="edit-icon">
+      <i class="bi bi-pencil text-primary bg-white"></i>
+    </div>
+    <div id="profile-img">
+      <img [src]="data.image" alt="" class="">
+    </div>
+    </div>
+
+    <div id="user-info" class="mt-5 ms-4">
+    <h2 *ngIf="data" >{{data.username}}</h2>
+    <p *ngIf="data"> {{data.title}}</p>
+    <p *ngIf="data" class="text-secondary">{{data.area}} &centerdot; <span class="text-primary fw-bold">Contact info</span></p>
+  </div>
+
+  <div id="button" class="mt-5 ms-4">
+    <button class="btn btn-primary rounded-pill me-2">Open to</button>
+    <button class="btn btn-outline-primary rounded-pill me-2">Add profile section</button>
+    <button class="btn btn-outline-secondary rounded-pill">More</button>
+  </div>
+
+  <div id="skills" class="mt-3 ms-4 mb-4">
+    <div class="pt-3 d-flex justify-content-between">
+    <h6 class="ms-3 mb-0">Open to work</h6>
+    <i class="bi bi-pencil text-secondary me-3"></i>
+  </div>
+    <div class="ms-3 pb-1">
+      <p *ngIf="data" class="my-0">{{data.bio}}</p>
+      <p class="text-primary fw-bold">Show details</p>
+    </div>
+  </div>
+
+    </div>
+
+    <div class="col col-3 border">
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+

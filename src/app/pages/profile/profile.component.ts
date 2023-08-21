@@ -16,10 +16,7 @@ export class ProfileComponent implements OnInit{
 
   }
   ngOnInit() {
-<<<<<<< HEAD
-=======
     this.getMyProfile()
->>>>>>> main
     // this.getSpecific()
      // this.getAll()
       this.getMe()

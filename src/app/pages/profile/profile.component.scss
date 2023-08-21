@@ -11,6 +11,9 @@
   top: 25px;
   right: 20px;
   i{
+    width: 40px;
+    height: 40px;
+    display: flex;
     border-radius: 50%;
     padding: 12px;
   }
@@ -31,5 +34,5 @@
   background-color: #DDE7F1;
   width: 80%;
   border-radius: 20px;
-  
+
 }

@@ -16,7 +16,8 @@ export class ProfileComponent implements OnInit{
 
   }
   ngOnInit() {
-    this.getSpecific()
+    this.getMyProfile()
+    // this.getSpecific()
      // this.getAll()
   }
 
@@ -32,6 +33,13 @@ export class ProfileComponent implements OnInit{
        console.log(data)
        this.data = data
      })
+   }
+
+   getMyProfile(){
+    this.profileSvc.getMyProfile().subscribe(data => {
+      console.log(data)
+      this.data = data
+    })
    }
 
 }

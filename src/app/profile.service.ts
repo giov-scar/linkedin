@@ -22,7 +22,7 @@ export class ProfileService {
   }
 
   getMyProfile(): Observable<IApiResp> {
-    return this.http.get<IApiResp>(`${environment.BASE_URL}`);
+    return this.http.get<IApiResp>(`${environment.BASE_URL}me`);
   }
 
   getSpecificProfile(id: string): Observable<IApiResp> {

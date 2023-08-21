@@ -17,6 +17,6 @@ export class ProfileService {
   constructor(private http: HttpClient, private router: Router) {}
 
   getAllProfile() {
-    return this.http.get('https://striveschool-api.herokuapp.com/api/profile/');
+    return this.http.get(`${environment.BASE_URL}`);
   }
 }

@@ -5,6 +5,7 @@ import { JobsComponent } from './components/jobs/jobs.component';
 import { MyNetworkComponent } from './components/my-network/my-network.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import {ProfileComponent} from "./pages/profile/profile.component";
 
 const routes: Routes = [
   {
@@ -30,7 +31,7 @@ const routes: Routes = [
   },
   {
     path: 'user-profile',
-    component: UserProfileComponent,
+    component: ProfileComponent,
   },
 ];
 

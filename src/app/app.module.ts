@@ -8,13 +8,23 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { NavComponent } from './components/nav/nav.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthInterceptor} from "./models/auth-interceptor";
+import { HomeComponent } from './components/home/home.component';
+import { MyNetworkComponent } from './components/my-network/my-network.component';
+import { JobsComponent } from './components/jobs/jobs.component';
+import { NotificationsComponent } from './components/notifications/notifications.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ProfileComponent,
-    NavComponent
+    NavComponent,
+    HomeComponent,
+    MyNetworkComponent,
+    JobsComponent,
+    NotificationsComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

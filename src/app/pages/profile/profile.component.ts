@@ -35,7 +35,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.getMyProfile()
-    // this.getSpecific()
+    // this.getMyExp()
     this.getAll()
     // form inserimento dati profilo
 
@@ -71,9 +71,8 @@ export class ProfileComponent implements OnInit {
     this.getMyProfile()
   }
   addExp(){
-     this.expService.addNewExp(this.form2.value, this.data._id)
+     this.expService.addNewExp(this.form2.value, this.data._id).subscribe(data=>this.getMyExp())
     console.log(this.form2.value, 'valore del form')
-    this.getMyExp()
     // this.getMyProfile()
   }
 
@@ -114,6 +113,7 @@ export class ProfileComponent implements OnInit {
     this.profileSvc.getMyProfile().subscribe(data => {
       console.log(data)
       this.data = data
+      this.getMyExp()
     })
   }
 

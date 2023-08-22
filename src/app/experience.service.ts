@@ -24,7 +24,7 @@ export class ExperienceService implements OnInit{
   }
 
   addNewExp(data:Partial<ExpApiResp>, userId:string ){
-    return this.http.post(`${environment.BASE_URL}${userId}/experiences`, data).subscribe(data=>console.log(data, 'esperienza aggiunta'))
+    return this.http.post(`${environment.BASE_URL}${userId}/experiences`, data)
   }
 
 

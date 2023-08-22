@@ -19,8 +19,8 @@ export class ExperienceService implements OnInit{
     this.profileSvc.getMyProfile().subscribe(data=>this.userId = data._id)
   }
 
-  getAllExp(userId:string): Observable<ExpApiResp> {
-    return this.http.get<ExpApiResp>(`${environment.BASE_URL}${userId}/experiences`)
+  getAllExp(userId:string): Observable<ExpApiResp[]> {
+    return this.http.get<ExpApiResp[]>(`${environment.BASE_URL}${userId}/experiences`)
   }
 
   addNewExp(data:Partial<ExpApiResp>, userId:string ){

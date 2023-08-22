@@ -18,7 +18,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ProfileComponent implements OnInit {
   data!: IApiResp;
-  expData!: ExpApiResp;
+  expData!: ExpApiResp[];
   title = 'ng-bootstrap-modal-demo';
   closeResult!: string;
   modalOptions: NgbModalOptions;
@@ -69,8 +69,9 @@ export class ProfileComponent implements OnInit {
     this.getMyProfile();
   }
   addExp() {
-    // this.expService.addNewExp(this.form2.value, this.data._id)
+    this.expService.addNewExp(this.form2.value, this.data._id);
     console.log(this.form2.value, 'valore del form');
+    this.getMyExp();
     // this.getMyProfile()
   }
 
@@ -120,7 +121,7 @@ export class ProfileComponent implements OnInit {
 
   getMyExp() {
     console.log(this.data._id);
-    this.expService.getAllExp(this.data._id).subscribe((data: ExpApiResp) => {
+    this.expService.getAllExp(this.data._id).subscribe((data: ExpApiResp[]) => {
       this.expData = data;
       console.log(this.expData, 'data');
     });

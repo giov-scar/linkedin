@@ -30,10 +30,8 @@ export class NavComponent implements AfterViewInit {
    this.isActive = !this.isActive
    if(this.isActive){
      this.class = 'col-lg-5'
-     console.log('col-lg-5')
    }else{
      this.class = 'col-lg-3'
-     console.log('col-lg-3')
    }
  }
 

@@ -13,6 +13,7 @@ import { MyNetworkComponent } from './components/my-network/my-network.component
 import { JobsComponent } from './components/jobs/jobs.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,16 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     JobsComponent,
     NotificationsComponent,
     UserProfileComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NgbModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+  ],
+  providers: [
+    [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   ],
   bootstrap: [AppComponent],
 })

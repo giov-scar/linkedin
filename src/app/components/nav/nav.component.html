@@ -2,7 +2,7 @@
   <div class="row align-items-center justify-content-center">
     <div class="col-5">
       <form class="d-flex" role="search">
-        <img src="../../../assets/img/icons8-linkedin-48.png" alt="logo" />
+        <img src="../../../assets/img/icons8-linkedin-48.png" alt="logo"/>
         <input
           class="form-control me-2"
           type="search"
@@ -45,10 +45,7 @@
         routerLink="/user-profile"
       >
         <img
-          id="profile-pic"
-          src="../../../assets/img/profile.jpg"
-          alt="profilepic"
-          class="w-75"
+          *ngIf="data" id="profile-pic" [src]="data.image" alt="profilepic" class="w-75"
         />
         <p class="m-0">Me <i class="bi bi-caret-down-fill"></i></p>
       </div>

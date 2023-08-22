@@ -7,7 +7,7 @@
       <i class="bi bi-pencil text-primary bg-white"></i>
     </div>
     <div id="profile-img">
-      <img [src]="data.image" alt="" class="">
+      <img *ngIf="data" [src]="data.image" alt="" class="">
     </div>
     </div>
 

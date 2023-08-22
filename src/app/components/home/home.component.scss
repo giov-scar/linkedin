@@ -1,0 +1,21 @@
+#box-img{
+  position: relative;
+}
+
+#profile-img{
+  position: absolute;
+  bottom: -20px;
+  left: 37%;
+  img{
+    width: 50px;
+    border-radius: 50%;
+    border: 3px solid white;
+  }
+}
+
+#profile-img-post{
+  img{
+    width: 50px;
+  }
+
+}

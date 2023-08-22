@@ -18,52 +18,76 @@ export class ProfileComponent implements OnInit {
   expData!: ExpApiResp
   title = 'ng-bootstrap-modal-demo';
   closeResult!: string;
-  modalOptions:NgbModalOptions;
-  form!:FormGroup;
-  form2!:FormGroup;
+  modalOptions: NgbModalOptions;
+  form!: FormGroup;
+  form2!: FormGroup;
   allUsers!: IApiResp[]
 
 
   constructor(private profileSvc: ProfileService, private expService: ExperienceService, private modalService: NgbModal, private fb: FormBuilder) {
     this.modalOptions = {
-      backdrop:'static',
-      backdropClass:'customBackdrop'
+      backdrop: 'static',
+      backdropClass: 'customBackdrop'
     }
   }
+
   @ViewChild('box') box!: ElementRef
 
   ngOnInit() {
-       this.getMyProfile()
-     // this.getSpecific()
-      this.getAll()
-
+    this.getMyProfile()
+    // this.getSpecific()
+    this.getAll()
+    // form inserimento dati profilo
 
     this.form = this.fb.group({
       title: this.fb.control(
         null,
         [Validators.required]
       ),
-      bio:this.fb.control(null, [Validators.required]),
-      area: this.fb.control(null,{
-      })
+      bio: this.fb.control(null, [Validators.required]),
+      area: this.fb.control(null, {})
+    })
+
+    //   form inserimento nuova esperienza
+
+    this.form2 = this.fb.group({
+      role: this.fb.control(
+        null,
+        [Validators.required]
+      ),
+      company: this.fb.control(
+        null,
+        [Validators.required]
+      ),
+      startDate: this.fb.control(null, [Validators.required]),
+      endDate: this.fb.control(null, [Validators.required]),
+      description: this.fb.control(null, [Validators.required]),
+      area: this.fb.control(null, {})
     })
   }
-  send(){
+
+  send() {
     this.profileSvc.modifyProfile(this.form.value)
     this.getMyProfile()
   }
+  addExp(){
+    // this.expService.addNewExp(this.form2.value, this.data._id)
+    console.log(this.form2.value, 'valore del form')
+    // this.getMyProfile()
+  }
+
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';
     } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
       return 'by clicking on a backdrop';
     } else {
-      return  `with: ${reason}`;
+      return `with: ${reason}`;
     }
   }
 
 
-  open(content:any) {
+  open(content: any) {
     this.modalService.open(content, this.modalOptions).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
@@ -72,7 +96,7 @@ export class ProfileComponent implements OnInit {
   }
 
   getAll() {
-    this.profileSvc.getAllProfile().subscribe((data:IApiResp[]) => {
+    this.profileSvc.getAllProfile().subscribe((data: IApiResp[]) => {
       console.log(data)
       this.allUsers = data
     })
@@ -92,12 +116,12 @@ export class ProfileComponent implements OnInit {
     })
   }
 
-   getMyExp() {
-     console.log(this.data._id)
+  getMyExp() {
+    console.log(this.data._id)
     this.expService.getAllExp(this.data._id).subscribe((data: ExpApiResp) => {
-       this.expData = data
-       console.log(this.expData, 'data')
-     })
-   }
+      this.expData = data
+      console.log(this.expData, 'data')
+    })
+  }
 
 }

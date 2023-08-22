@@ -20,7 +20,7 @@ export class ExperienceService implements OnInit{
   }
 
   getAllExp(userId:string): Observable<ExpApiResp> {
-    return this.http.get<ExpApiResp>(`${environment.BASE_URL}:${userId}/experiences`)
+    return this.http.get<ExpApiResp>(`${environment.BASE_URL}${userId}/experiences`)
   }
 
 

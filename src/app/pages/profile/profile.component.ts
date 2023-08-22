@@ -36,20 +36,19 @@ export class ProfileComponent implements OnInit {
     //  this.getAll()
 
 
-
-
     this.form = this.fb.group({
-      email: this.fb.control(
+      title: this.fb.control(
         null,
         [Validators.required]
       ),
-      username:this.fb.control(null, [Validators.required]),
-      city: this.fb.control({
+      bio:this.fb.control(null, [Validators.required]),
+      area: this.fb.control(null,{
       })
     })
   }
   send(){
     this.profileSvc.modifyProfile(this.form.value)
+    this.getMyProfile()
   }
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {

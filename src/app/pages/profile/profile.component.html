@@ -6,7 +6,7 @@
       <div id="edit-icon" (click)="open(mymodal)" >
       <i class="bi bi-pencil text-primary bg-white"></i>
     </div>
-<!-- inizio modale-->
+<!-- inizio modale modifica profilo-->
 
         <ng-template #mymodal let-modal>
           <div class="modal-header">
@@ -18,17 +18,16 @@
           <div class="modal-body">
             <form [formGroup]="form">
               <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email"  formControlName="email">
-                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                <label for="exampleInputTitle1" class="form-label">Title</label>
+                <input type="text" class="form-control" id="exampleInputTitle1" aria-describedby="Title" placeholder="Title"  formControlName="title">
               </div>
               <div class="mb-3">
-                <label for="exampleInputUsername" class="form-label">Username</label>
-                <input type="text" class="form-control" id="exampleInputUsername" placeholder="Username"  formControlName="username">
+                <label for="bio" class="form-label">Bio</label>
+                <input type="text" class="form-control" id="bio" placeholder="bio"  formControlName="bio">
               </div>
               <div class="mb-3">
                 <label for="exampleInputCity" class="form-label">City</label>
-                <input type="text" class="form-control" id="exampleInputCity" placeholder="City"  formControlName="city">
+                <input type="text" class="form-control" id="exampleInputCity" placeholder="City"  formControlName="area">
               </div>
               <button type="submit" class="btn btn-success" (click)="send()">Submit</button>
             </form>
@@ -38,7 +37,7 @@
           </div>
         </ng-template>
 
-<!-- fine modale -->
+<!-- fine modale modifica profilo -->
 
     <div id="profile-img">
       <img *ngIf="data" [src]="data.image" alt="" class="">
@@ -68,7 +67,7 @@
     </div>
   </div>
 
-  <!--  -->
+
 
     </div>
 
@@ -171,6 +170,7 @@
 
 
   </div>
+
 
 </div>
 

@@ -21,6 +21,7 @@ export class ProfileComponent implements OnInit {
   modalOptions:NgbModalOptions;
   form!:FormGroup;
   form2!:FormGroup;
+  allUsers!: IApiResp[]
 
 
   constructor(private profileSvc: ProfileService, private expService: ExperienceService, private modalService: NgbModal, private fb: FormBuilder) {
@@ -34,7 +35,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
        this.getMyProfile()
      // this.getSpecific()
-    //  this.getAll()
+      this.getAll()
 
 
     this.form = this.fb.group({
@@ -71,9 +72,9 @@ export class ProfileComponent implements OnInit {
   }
 
   getAll() {
-    this.profileSvc.getAllProfile().subscribe(data => {
+    this.profileSvc.getAllProfile().subscribe((data:IApiResp[]) => {
       console.log(data)
-      this.data = data
+      this.allUsers = data
     })
   }
 

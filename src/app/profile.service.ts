@@ -17,8 +17,8 @@ export class ProfileService {
               private router: Router) {
   }
 
-  getAllProfile():Observable<IApiResp> {
-    return this.http.get<IApiResp>(`${environment.BASE_URL}`)
+  getAllProfile():Observable<IApiResp[]> {
+    return this.http.get<IApiResp[]>(`${environment.BASE_URL}`)
   }
 
    getMyProfile(): Observable<IApiResp> {

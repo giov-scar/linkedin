@@ -3,12 +3,14 @@
     <div class="col col-8 ms-auto me-2 mt-3 border rounded-3 p-0" id="box1">
       <div id="box-img">
       <img src="https://marketplace.canva.com/EAE2cQaUHVA/1/0/1600w/canva-black-minimal-motivation-quote-linkedin-banner-HoRi-2buBWk.jpg" alt="cover" class="img-fluid rounded-top-2">
+      <div id="profile-img">
+        <img *ngIf="data" [src]="data.image" alt="" class="img-fluid">
+      </div>
       <div id="edit-icon">
       <i class="bi bi-pencil text-primary bg-white"></i>
+
     </div>
-    <div id="profile-img">
-      <img *ngIf="data" [src]="data.image" alt="" class="">
-    </div>
+
     </div>
 
     <div id="user-info" class="mt-5 ms-4">
@@ -34,7 +36,6 @@
     </div>
   </div>
 
-  <!--  -->
 
     </div>
 

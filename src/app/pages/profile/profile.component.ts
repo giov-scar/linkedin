@@ -88,13 +88,6 @@ export class ProfileComponent implements OnInit {
       });
   }
 
-  getMyProfile() {
-    this.profileSvc.getMyProfile().subscribe((data) => {
-      console.log(data);
-      this.data = data;
-    });
-  }
-
   getMyExp() {
     console.log(this.data._id);
     this.expService.getAllExp(this.data._id).subscribe((data: ExpApiResp) => {
@@ -108,8 +101,5 @@ export class ProfileComponent implements OnInit {
       console.log(data);
       this.data = data;
     });
-  }
-  getMyexp() {
-    this.expService.getAllExp().subscribe((expData) => console.log(expData));
   }
 }

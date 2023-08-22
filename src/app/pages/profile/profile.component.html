@@ -2,39 +2,74 @@
   <div class="row">
     <div class="col col-8 ms-auto me-2 mt-3 border rounded-3 p-0" id="box1">
       <div id="box-img">
-      <img src="https://marketplace.canva.com/EAE2cQaUHVA/1/0/1600w/canva-black-minimal-motivation-quote-linkedin-banner-HoRi-2buBWk.jpg" alt="cover" class="img-fluid rounded-top-2">
-      <div id="profile-img">
-        <img *ngIf="data" [src]="data.image" alt="" class="img-fluid">
+        <img
+          src="https://marketplace.canva.com/EAE2cQaUHVA/1/0/1600w/canva-black-minimal-motivation-quote-linkedin-banner-HoRi-2buBWk.jpg"
+          alt="cover" class="img-fluid rounded-top-2">
+        <div id="edit-icon" (click)="open(mymodal)">
+          <i class="bi bi-pencil text-primary bg-white"></i>
+        </div>
+        <!-- inizio modale modifica profilo-->
+
+        <ng-template #mymodal let-modal>
+          <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Modifica il tuo profilo</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form [formGroup]="form">
+              <div class="mb-3">
+                <label for="exampleInputTitle1" class="form-label">Title</label>
+                <input type="text" class="form-control" id="exampleInputTitle1" aria-describedby="Title"
+                       placeholder="Title" formControlName="title">
+              </div>
+              <div class="mb-3">
+                <label for="bio" class="form-label">Bio</label>
+                <input type="text" class="form-control" id="bio" placeholder="bio" formControlName="bio">
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputCity" class="form-label">City</label>
+                <input type="text" class="form-control" id="exampleInputCity" placeholder="City" formControlName="area">
+              </div>
+              <button type="submit" class="btn btn-success" (click)="send()">Submit</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-danger" (click)="modal.close('Save click')">Close</button>
+          </div>
+        </ng-template>
+
+        <!-- fine modale modifica profilo -->
+
+        <div id="profile-img">
+          <img *ngIf="data" [src]="data.image" alt="" class="">
+        </div>
       </div>
-      <div id="edit-icon">
-      <i class="bi bi-pencil text-primary bg-white"></i>
 
-    </div>
+      <div id="user-info" class="mt-5 ms-4">
+        <h2 *ngIf="data">{{data.username}}</h2>
+        <p *ngIf="data"> {{data.title}}</p>
+        <p *ngIf="data" class="text-secondary">{{data.area}} &centerdot; <span
+          class="text-primary fw-bold">Contact info</span></p>
+      </div>
 
-    </div>
+      <div id="button" class="mt-5 ms-4">
+        <button class="btn btn-primary rounded-pill me-2" (click)="getMyExp()">Open to</button>
+        <button class="btn btn-outline-primary rounded-pill me-2">Add profile section</button>
+        <button class="btn btn-outline-secondary rounded-pill">More</button>
+      </div>
 
-    <div id="user-info" class="mt-5 ms-4">
-    <h2 *ngIf="data" >{{data.username}}</h2>
-    <p *ngIf="data"> {{data.title}}</p>
-    <p *ngIf="data" class="text-secondary">{{data.area}} &centerdot; <span class="text-primary fw-bold">Contact info</span></p>
-  </div>
-
-  <div id="button" class="mt-5 ms-4">
-    <button class="btn btn-primary rounded-pill me-2">Open to</button>
-    <button class="btn btn-outline-primary rounded-pill me-2">Add profile section</button>
-    <button class="btn btn-outline-secondary rounded-pill">More</button>
-  </div>
-
-  <div id="skills" class="mt-3 ms-4 mb-4">
-    <div class="pt-3 d-flex justify-content-between">
-    <h6 class="ms-3 mb-0">Open to work</h6>
-    <i class="bi bi-pencil text-secondary me-3"></i>
-  </div>
-    <div class="ms-3 pb-1">
-      <p *ngIf="data" class="my-0">{{data.bio}}</p>
-      <p class="text-primary fw-bold">Show details</p>
-    </div>
-  </div>
+      <div id="skills" class="mt-3 ms-4 mb-4">
+        <div class="pt-3 d-flex justify-content-between">
+          <h6 class="ms-3 mb-0">Open to work</h6>
+          <i class="bi bi-pencil text-secondary me-3"></i>
+        </div>
+        <div class="ms-3 pb-1">
+          <p *ngIf="data" class="my-0">{{data.bio}}</p>
+          <p class="text-primary fw-bold">Show details</p>
+        </div>
+      </div>
 
 
     </div>
@@ -43,55 +78,57 @@
     <div class="col col-3 mt-3 me-3">
       <div class="rounded bg-white p-3">
         <div class="d-flex justify-content-between align-items-center">
-        <h6 class="pt-3">Profile language</h6>
-        <i class="bi bi-pencil text-secondary me-3"></i>
-      </div>
-      <button class="btn btn-success rounded-pill px-4 me-3">Italiano</button>
-      <button class="btn btn-outline-secondary rounded-pill px-4">English</button>
-      <hr class="mt-3">
-      <div class="d-flex justify-content-between align-items-center">
-        <h6 class="pt-2">Public profile &amp; URL</h6>
-        <i class="bi bi-pencil text-secondary me-3"></i>
-      </div>
-      <div>
-      <p class="text-secondary pe-2">youtube.com/watch?v=dQw4w9WgXcQ</p>
-    </div>
+          <h6 class="pt-3">Profile language</h6>
+          <i class="bi bi-pencil text-secondary me-3"></i>
+        </div>
+        <button class="btn btn-success rounded-pill px-4 me-3">Italiano</button>
+        <button class="btn btn-outline-secondary rounded-pill px-4">English</button>
+        <hr class="mt-3">
+        <div class="d-flex justify-content-between align-items-center">
+          <h6 class="pt-2">Public profile &amp; URL</h6>
+          <i class="bi bi-pencil text-secondary me-3"></i>
+        </div>
+        <div>
+          <p class="text-secondary pe-2">youtube.com/watch?v=dQw4w9WgXcQ</p>
+        </div>
       </div>
 
       <div class="rounded bg-white p-3 mt-3" id="follow-tab">
         <div class="d-flex justify-content-between align-items-center">
-        <h6 class="pt-3">People you may know</h6>
+          <h6 class="pt-3">People you may know</h6>
+        </div>
+
+        <div class="d-flex" *ngIf="allUsers">
+          <div>
+            <img [src]="allUsers[5].image" alt="profile-img" width="50px" class="rounded-circle">
+          </div>
+          <div class="d-flex flex-column">
+            <h6>{{allUsers[5].name}} {{allUsers[5].surname}} <span
+              class="text-secondary fw-light"> &centerdot; 2&deg;</span></h6>
+            <p class="mb-0">{{allUsers[5].title}}</p>
+            <p class="mt-0">{{allUsers[5].area}}</p>
+            <button class="btn btn-outline-secondary rounded-pill px-1 py-0">Follow</button>
+          </div>
+        </div>
+        <hr class="mt-3">
+
+        <div class="d-flex" *ngIf="allUsers">
+          <div>
+            <img [src]="allUsers[10].image" alt="profile-img" width="50px" class="rounded-circle">
+          </div>
+          <div class="d-flex flex-column">
+            <h6>{{allUsers[10].name}} {{allUsers[10].surname}} <span
+              class="text-secondary fw-light"> &centerdot; 2&deg;</span></h6>
+            <p class="mb-0">{{allUsers[10].title}}</p>
+            <p class="mt-0">{{allUsers[10].area}}</p>
+            <button class="btn btn-outline-secondary rounded-pill px-1 py-0">Follow</button>
+          </div>
+        </div>
+        <hr class="mt-3">
+
       </div>
-      <div class="d-flex">
-        <div>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Circle_-_black_simple.svg" alt="profile-img" width="50px">
-      </div>
-      <div class="d-flex flex-column">
-        <h6>Mario Rossi <span class="text-secondary fw-light"> &centerdot; 2&deg;</span></h6>
-        <p class="mb-0">Posizione lavorativa</p>
-        <p class="mt-0">Sede posizione lavorativa</p>
-      <button class="btn btn-outline-secondary rounded-pill px-1 py-0">Follow</button>
+
     </div>
-      </div>
-      <hr class="mt-3">
-
-      <div class="d-flex">
-        <div>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Circle_-_black_simple.svg" alt="profile-img" width="50px">
-      </div>
-      <div class="d-flex flex-column">
-        <h6>Mario Rossi <span class="text-secondary fw-light"> &centerdot; 2&deg;</span></h6>
-        <p class="mb-0">Posizione lavorativa</p>
-        <p class="mt-0">Sede posizione lavorativa</p>
-      <button class="btn btn-outline-secondary rounded-pill px-1 py-0">Follow</button>
-    </div>
-      </div>
-      <hr class="mt-3">
-
-      </div>
-
-    </div>
-
 
 
   </div>
@@ -99,35 +136,49 @@
   <div class="row">
     <div class="col col-8 ms-auto me-2 mt-2 border bg-white rounded-3 p-0" id="box2">
       <div class="d-flex justify-content-between align-items-center">
-      <h4 class="mt-2 ms-4">Experience</h4>
-      <div class="me-3">
-        <i class="bi bi-plus-lg text-secondary me-2"></i>
-        <i class="bi bi-pencil text-secondary bg-white"></i>
+        <h4 class="mt-2 ms-4">Experience</h4>
+        <div class="me-3">
+          <i class="bi bi-plus-lg text-secondary me-2" (click)="open(mymodal2)"></i>
+          <i class="bi bi-pencil text-secondary bg-white"></i>
+        </div>
       </div>
-    </div>
-    <div class="ms-4 mt-3 d-flex">
-      <div>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Circle_-_black_simple.svg" alt="profile-img" width="50px">
-      </div>
-      <div class="d-flex flex-column">
-      <h5 class="mb-0">Web Developer</h5>
-      <p class="mb-0">Mario Rossi S.p.A. &centerdot; A tempo pieno</p>
-      <p class="text-secondary my-0">Sept. 1970 - Present</p>
-      <p class="text-secondary fs-6">Roma, Lazio, Italia</p>
-      <div>
-        <input type="checkbox" class="read-more-state" id="post-2" />
+      <div class="ms-4 mt-3 d-flex">
+        <div class="d-flex flex-column all-exp-cont">
+          <div class="d-flex exp-cont">
+            <div class="img-cont">
+              <div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Circle_-_black_simple.svg"
+                     alt="profile-img" width="50px">
+              </div>
+            </div>
+            <div class="d-flex flex-column">
+              <h5 class="mb-0">Web Developer</h5>
+              <p class="mb-0">Mario Rossi S.p.A. &centerdot; A tempo pieno</p>
+              <p class="text-secondary my-0">Sept. 1970 - Present</p>
+              <p class="text-secondary fs-6">Roma, Lazio, Italia</p>
+              <div>
+                <input type="checkbox" class="read-more-state" id="post-2"/>
 
-        <ul class="read-more-wrap">
-          <li>lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi culpa ea veritatis illum dolores, recusandae quam? Itaque tenetur ea dolore quod enim qui quibusdam pariatur, veritatis accusantium animi expedita nesciunt?</li>
-          <li>lorem 2 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima vero officia sint eum, expedita culpa beatae tempora enim earum eius voluptates ab assumenda accusantium porro sequi. Sequi sit labore voluptates.</li>
-          <li class="read-more-target">lorem 3</li>
-          <li class="read-more-target">lorem 4</li>
-        </ul>
+                <ul class="read-more-wrap">
+                  <li>lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi culpa ea veritatis illum
+                      dolores, recusandae quam? Itaque tenetur ea dolore quod enim qui quibusdam pariatur, veritatis
+                      accusantium animi expedita nesciunt?
+                  </li>
+                  <li>lorem 2 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima vero officia sint eum,
+                      expedita culpa beatae tempora enim earum eius voluptates ab assumenda accusantium porro sequi.
+                      Sequi sit labore voluptates.
+                  </li>
+                  <li class="read-more-target">lorem 3</li>
+                  <li class="read-more-target">lorem 4</li>
+                </ul>
 
-        <label for="post-2" class="read-more-trigger"></label>
+                <label for="post-2" class="read-more-trigger"></label>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
-    </div>
-    </div>
     </div>
 
     <div class="col col-3 me-3">
@@ -135,9 +186,56 @@
     </div>
 
 
-
-
   </div>
+
+  <!--Inizio modale aggiungi esperienza-->
+
+
+  <ng-template #mymodal2 let-modal2>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title2">Add Experience</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal2.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="form2">
+        <div class="mb-3">Role
+          <label for="Role" class="form-label">Title</label>
+          <input type="text" class="form-control" id="Role" aria-describedby="Role" placeholder="Role"
+                 formControlName="role">
+        </div>
+        <div class="mb-3">Company
+          <label for="Company" class="form-label">Company</label>
+          <input type="text" class="form-control" id="Company" placeholder="Company" formControlName="company">
+        </div>
+        <div class="mb-3">
+          <label for="startDate" class="form-label">Start Date</label>
+          <input type="date" class="form-control" id="startDate" placeholder="startDate" formControlName="startDate">
+        </div>
+        <div class="mb-3">
+          <label for="endDate" class="form-label">End Date</label>
+          <input type="date" class="form-control" id="endDate" placeholder="endDate" formControlName="endDate">
+        </div>
+        <div class="mb-3">Description
+          <label for="Description" class="form-label">Description</label>
+          <input type="text" class="form-control" id="Description" placeholder="Description"
+                 formControlName="description">
+        </div>
+        <div class="mb-3">Area
+          <label for="Area" class="form-label">Area</label>
+          <input type="text" class="form-control" id="Area" placeholder="Area" formControlName="area">
+        </div>
+        <button type="submit" class="btn btn-success" (click)="addExp()">Submit</button>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-danger" (click)="modal2.close('Save click')">Close</button>
+    </div>
+  </ng-template>
+
+  <!--Fine modale aggiungi esperienza-->
+
 
 </div>
 

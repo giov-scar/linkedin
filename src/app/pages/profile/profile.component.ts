@@ -37,23 +37,43 @@ export class ProfileComponent implements OnInit {
       backdropClass: 'customBackdrop',
     };
   }
+
   @ViewChild('box') box!: ElementRef;
 
   ngOnInit() {
     this.getMyProfile();
     // this.getSpecific()
     this.getAll();
+    // form inserimento dati profilo
 
     this.form = this.fb.group({
       title: this.fb.control(null, [Validators.required]),
       bio: this.fb.control(null, [Validators.required]),
       area: this.fb.control(null, {}),
     });
+
+    //   form inserimento nuova esperienza
+
+    this.form2 = this.fb.group({
+      role: this.fb.control(null, [Validators.required]),
+      company: this.fb.control(null, [Validators.required]),
+      startDate: this.fb.control(null, [Validators.required]),
+      endDate: this.fb.control(null, [Validators.required]),
+      description: this.fb.control(null, [Validators.required]),
+      area: this.fb.control(null, {}),
+    });
   }
+
   send() {
     this.profileSvc.modifyProfile(this.form.value);
     this.getMyProfile();
   }
+  addExp() {
+    // this.expService.addNewExp(this.form2.value, this.data._id)
+    console.log(this.form2.value, 'valore del form');
+    // this.getMyProfile()
+  }
+
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';
@@ -91,18 +111,18 @@ export class ProfileComponent implements OnInit {
       });
   }
 
+  getMyProfile() {
+    this.profileSvc.getMyProfile().subscribe((data) => {
+      console.log(data);
+      this.data = data;
+    });
+  }
+
   getMyExp() {
     console.log(this.data._id);
     this.expService.getAllExp(this.data._id).subscribe((data: ExpApiResp) => {
       this.expData = data;
       console.log(this.expData, 'data');
-    });
-  }
-
-  getMyProfile() {
-    this.profileSvc.getMyProfile().subscribe((data) => {
-      console.log(data);
-      this.data = data;
     });
   }
 }

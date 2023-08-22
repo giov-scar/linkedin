@@ -23,6 +23,8 @@ export class ProfileComponent implements OnInit {
   closeResult!: string;
   modalOptions: NgbModalOptions;
   form!: FormGroup;
+  form2!: FormGroup;
+  allUsers!: IApiResp[];
 
   constructor(
     private profileSvc: ProfileService,
@@ -40,16 +42,17 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.getMyProfile();
     // this.getSpecific()
-    //  this.getAll()
+    this.getAll();
 
     this.form = this.fb.group({
-      email: this.fb.control(null, [Validators.required]),
-      username: this.fb.control(null, [Validators.required]),
-      city: this.fb.control({}),
+      title: this.fb.control(null, [Validators.required]),
+      bio: this.fb.control(null, [Validators.required]),
+      area: this.fb.control(null, {}),
     });
   }
   send() {
     this.profileSvc.modifyProfile(this.form.value);
+    this.getMyProfile();
   }
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
@@ -73,9 +76,9 @@ export class ProfileComponent implements OnInit {
   }
 
   getAll() {
-    this.profileSvc.getAllProfile().subscribe((data) => {
+    this.profileSvc.getAllProfile().subscribe((data: IApiResp[]) => {
       console.log(data);
-      this.data = data;
+      this.allUsers = data;
     });
   }
 

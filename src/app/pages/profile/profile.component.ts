@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {ProfileService} from "../../profile.service";
 import {Observable} from "rxjs";
 import {IApiResp} from "../../models/iapi-resp";
+import {ExperienceService} from "../../experience.service";
+import {ExpApiResp} from "../../models/exp-api-resp";
 
 
 @Component({
@@ -11,14 +13,16 @@ import {IApiResp} from "../../models/iapi-resp";
 })
 export class ProfileComponent implements OnInit{
   data!: IApiResp
+  expData!:ExpApiResp
 
-  constructor(private profileSvc: ProfileService) {
+  constructor(private profileSvc: ProfileService, private expService: ExperienceService) {
 
   }
   ngOnInit() {
-    this.getMyProfile()
+    // this.getMyProfile()
     // this.getSpecific()
      // this.getAll()
+    this.getMyexp()
   }
 
   getAll() {
@@ -40,6 +44,9 @@ export class ProfileComponent implements OnInit{
       console.log(data)
       this.data = data
     })
+   }
+   getMyexp(){
+    this.expService.getAllExp().subscribe(expData=>console.log(expData))
    }
 
 }

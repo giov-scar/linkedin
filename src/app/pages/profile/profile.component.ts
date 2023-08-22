@@ -20,6 +20,7 @@ export class ProfileComponent implements OnInit {
   closeResult!: string;
   modalOptions:NgbModalOptions;
   form!:FormGroup;
+  form2!:FormGroup;
 
 
   constructor(private profileSvc: ProfileService, private expService: ExperienceService, private modalService: NgbModal, private fb: FormBuilder) {

@@ -1,1 +1,37 @@
-<p>home works!</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col col-2 mt-4 ms-5 px-0">
+      <div id="box-img">
+        <img
+          src="https://marketplace.canva.com/EAE2cQaUHVA/1/0/1600w/canva-black-minimal-motivation-quote-linkedin-banner-HoRi-2buBWk.jpg"
+          alt="cover" class="img-fluid rounded-top-2 w-100">
+          <div id="profile-img">
+            <img *ngIf="data" [src]="data.image" alt="" class="">
+          </div>
+    </div>
+
+    <div class="bg-white">
+      <h6 class="pt-4 text-center" >NOME COGNOME</h6>
+      <p class="text-secondary text-center px-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique earum veniam quia commodi eius sunt ipsam numquam? Ipsa commodi quibusdam pariatur cupiditate. Rem cum molestiae laudantium eos fugit quos in?</p>
+      <hr>
+      <p>Collegamenti</p>
+      <p>Espandi la tua rete</p>
+      <p>Chi ha visitato il tuo profilo</p>
+      <hr>
+    </div>
+
+  </div>
+
+  <div class="col col-6 border mt-4 mx-2 p-0">
+    <div class="bg-white border rounded-5">
+      <div id="profile-img-post">
+        <img *ngIf="data" [src]="data.image" alt="" class="rounded-circle">
+      </div>
+    </div>
+  </div>
+  <div class="col col-3 border mt-4">
+
+</div>
+    </div>
+
+</div>

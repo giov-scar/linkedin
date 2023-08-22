@@ -26,6 +26,16 @@ export class ExperienceService implements OnInit{
   addNewExp(data:Partial<ExpApiResp>, userId:string ){
     return this.http.post(`${environment.BASE_URL}${userId}/experiences`, data)
   }
+  deleteExp(expId:string, userId: string){
+    return this.http.delete(`${environment.BASE_URL}${userId}/experiences/${expId}`, {
+      responseType: 'text'
+    })
+  }
+
+  modifyExp(data:Partial<ExpApiResp>, expId:string, userId: string){
+    console.log(data, 'dati passati')
+    return this.http.put(`${environment.BASE_URL}${userId}/experiences/${expId}`, data)
+  }
 
 
 }

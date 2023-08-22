@@ -139,7 +139,7 @@
         <h4 class="mt-2 ms-4">Experience</h4>
         <div class="me-3">
           <i class="bi bi-plus-lg text-secondary me-2" (click)="open(mymodal2)"></i>
-          <i class="bi bi-pencil text-secondary bg-white"></i>
+
         </div>
       </div>
       <div class="ms-4 mt-3 d-flex">
@@ -153,12 +153,15 @@
               </div>
             </div>
             <div class="d-flex flex-column">
-              <h5 class="mb-0">{{exp.role}}</h5>
+              <div class="d-flex justify-content-between">
+                <h5 class="mb-0">{{exp.role}}</h5>
+                <i class="bi bi-pencil text-secondary bg-white pe-4 pt-1" (click)="open(mymodal3);saveId(exp._id)"></i>
+              </div>
               <p class="mb-0">{{exp.company}} &centerdot; A tempo pieno</p>
               <p class="text-secondary my-0">{{exp.startDate}} - {{exp.endDate}}</p>
               <p class="text-secondary fs-6">{{exp.area}}</p>
               <div>
-                <input type="checkbox" class="read-more-state" id="post-{{i}}" />
+                <input type="checkbox" class="read-more-state" id="post-{{i}}"/>
 
                 <ul class="read-more-wrap">
                   <li>{{exp.description}}
@@ -172,6 +175,7 @@
                 </ul>
 
                 <label for="post-{{i}}" class="read-more-trigger"></label>
+                <hr class="me-3">
               </div>
             </div>
           </div>
@@ -233,6 +237,55 @@
   </ng-template>
 
   <!--Fine modale aggiungi esperienza-->
+
+<!--  Inizio modifica esperienza modale-->
+
+  <ng-template #mymodal3 let-modal3>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title3">Edit Experience</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal3.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="form3">
+        <div class="mb-3">Role
+          <label for="Role" class="form-label">Title</label>
+          <input type="text" class="form-control" id="RoleMod" aria-describedby="Role" placeholder="Role"
+                 formControlName="role">
+        </div>
+        <div class="mb-3">Company
+          <label for="Company" class="form-label">Company</label>
+          <input type="text" class="form-control" id="CompanyMod" placeholder="Company" formControlName="company">
+        </div>
+        <div class="mb-3">
+          <label for="startDate" class="form-label">Start Date</label>
+          <input type="date" class="form-control" id="startDateMod" placeholder="startDate" formControlName="startDate">
+        </div>
+        <div class="mb-3">
+          <label for="endDate" class="form-label">End Date</label>
+          <input type="date" class="form-control" id="endDateMod" placeholder="endDate" formControlName="endDate">
+        </div>
+        <div class="mb-3">Description
+          <label for="Description" class="form-label">Description</label>
+          <input type="text" class="form-control" id="DescriptionMod" placeholder="Description"
+                 formControlName="description">
+        </div>
+        <div class="mb-3">Area
+          <label for="Area" class="form-label">Area</label>
+          <input type="text" class="form-control" id="AreaMod" placeholder="Area" formControlName="area2">
+        </div>
+        <button type="submit" class="btn btn-success" (click)="modifyExp()" >Edit</button>
+        <button type="submit" class="btn btn-danger" (click)="deleteExp()">Delete</button>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-danger" (click)="modal3.close('Save click')">Close</button>
+    </div>
+  </ng-template>
+
+
+<!--  Fine modifica esperienza modale-->
 
 
 </div>

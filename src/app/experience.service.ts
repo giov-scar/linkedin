@@ -27,7 +27,9 @@ export class ExperienceService implements OnInit{
     return this.http.post(`${environment.BASE_URL}${userId}/experiences`, data)
   }
   deleteExp(expId:string, userId: string){
-    return this.http.delete(`${environment.BASE_URL}${userId}/experiences/${expId}`)
+    return this.http.delete(`${environment.BASE_URL}${userId}/experiences/${expId}`, {
+      responseType: 'text'
+    })
   }
 
   modifyExp(data:Partial<ExpApiResp>, expId:string, userId: string){

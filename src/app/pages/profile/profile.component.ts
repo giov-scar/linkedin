@@ -147,7 +147,7 @@ export class ProfileComponent implements OnInit {
   deleteExp() {
     this.expService.deleteExp(this.toDelete, this.data._id).subscribe(data => {
       console.log(data)
-      this.getMyProfile()
+     this.getMyExp()
     })
   }
 

@@ -29,8 +29,6 @@ export class ProfileService {
     return this.http.get<IApiResp>(`${environment.BASE_URL}${id}`);
   }
   modifyProfile(data: Partial<IApiResp>) {
-    return this.http
-      .put(`${environment.BASE_URL}`, data)
-      .subscribe((data) => console.log(data, 'inviata'));
+    return this.http.put(`${environment.BASE_URL}`, data);
   }
 }

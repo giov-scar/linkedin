@@ -6,6 +6,7 @@ import {ExperienceService} from "../../experience.service";
 import {ExpApiResp} from "../../models/exp-api-resp";
 import {NgbModal, ModalDismissReasons, NgbModalOptions} from '@ng-bootstrap/ng-bootstrap';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {PostService} from "../../post.service";
 
 
 @Component({
@@ -21,10 +22,11 @@ export class ProfileComponent implements OnInit {
   modalOptions: NgbModalOptions;
   form!: FormGroup;
   form2!: FormGroup;
+  form3!: FormGroup;
   allUsers!: IApiResp[]
+  toDelete!: string
 
-
-  constructor(private profileSvc: ProfileService, private expService: ExperienceService, private modalService: NgbModal, private fb: FormBuilder) {
+  constructor(private profileSvc: ProfileService, private expService: ExperienceService, private modalService: NgbModal, private fb: FormBuilder, private postService: PostService) {
     this.modalOptions = {
       backdrop: 'static',
       backdropClass: 'customBackdrop'
@@ -64,16 +66,34 @@ export class ProfileComponent implements OnInit {
       description: this.fb.control(null, [Validators.required]),
       area: this.fb.control(null, {})
     })
+    //form modifica esperienza
+
+    this.form3 = this.fb.group({
+      role: this.fb.control(
+        null,
+        [Validators.required]
+      ),
+      company: this.fb.control(
+        null,
+        [Validators.required]
+      ),
+      startDate: this.fb.control(null, [Validators.required]),
+      endDate: this.fb.control(null, [Validators.required]),
+      description: this.fb.control(null, [Validators.required]),
+      area: this.fb.control(null, {})
+    })
+
+
   }
 
   send() {
     this.profileSvc.modifyProfile(this.form.value)
     this.getMyProfile()
   }
-  addExp(){
-     this.expService.addNewExp(this.form2.value, this.data._id).subscribe(data=>this.getMyExp())
+
+  addExp() {
+    this.expService.addNewExp(this.form2.value, this.data._id).subscribe(data => this.getMyExp())
     console.log(this.form2.value, 'valore del form')
-    // this.getMyProfile()
   }
 
   private getDismissReason(reason: any): string {
@@ -123,6 +143,31 @@ export class ProfileComponent implements OnInit {
       this.expData = data
       console.log(this.expData, 'data')
     })
+  }
+
+  deleteExp() {
+    this.expService.deleteExp(this.toDelete, this.data._id).subscribe(data => {
+      console.log(data)
+     this.getMyExp()
+    })
+  }
+
+  modifyExp() {
+    this.expService.modifyExp(this.form3.value, this.toDelete, this.data._id).subscribe(data => {
+      console.log(data, 'inviata')
+      this.getMyExp()
+    })
+  }
+
+  saveId(expId: string) {
+    console.log(expId)
+    this.toDelete = expId
+  }
+  getAllPost(){
+    this.postService.getAllPost().subscribe(data=>{
+      console.log(data, 'all post')
+    })
+
   }
 
 }

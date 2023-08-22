@@ -19,7 +19,7 @@ export class ProfileComponent implements OnInit{
 
   }
   ngOnInit() {
-    // this.getMyProfile()
+    this.getMyProfile()
     // this.getSpecific()
      // this.getAll()
     this.getMyexp()

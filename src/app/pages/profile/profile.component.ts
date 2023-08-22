@@ -6,6 +6,7 @@ import {ExperienceService} from "../../experience.service";
 import {ExpApiResp} from "../../models/exp-api-resp";
 import {NgbModal, ModalDismissReasons, NgbModalOptions} from '@ng-bootstrap/ng-bootstrap';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {PostService} from "../../post.service";
 
 
 @Component({
@@ -25,7 +26,7 @@ export class ProfileComponent implements OnInit {
   allUsers!: IApiResp[]
   toDelete!: string
 
-  constructor(private profileSvc: ProfileService, private expService: ExperienceService, private modalService: NgbModal, private fb: FormBuilder) {
+  constructor(private profileSvc: ProfileService, private expService: ExperienceService, private modalService: NgbModal, private fb: FormBuilder, private postService: PostService) {
     this.modalOptions = {
       backdrop: 'static',
       backdropClass: 'customBackdrop'
@@ -161,6 +162,12 @@ export class ProfileComponent implements OnInit {
   saveId(expId: string) {
     console.log(expId)
     this.toDelete = expId
+  }
+  getAllPost(){
+    this.postService.getAllPost().subscribe(data=>{
+      console.log(data, 'all post')
+    })
+
   }
 
 }

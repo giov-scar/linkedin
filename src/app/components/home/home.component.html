@@ -25,83 +25,88 @@
     <div class="col col-5 mt-4 mx-2 p-0">
       <div class="bg-white border rounded-3">
         <div class="d-flex align-items-center mt-2 mx-auto p-3">
-        <div id="profile-img-post">
-          <img *ngIf="data" [src]="data.image" alt="" class="rounded-circle">
-        </div>
-        <div>
-          <input type="text" id="add-post" placeholder=" Avvia un post" class="rounded-pill border border-1 py-2 ms-3">
-        </div>
-      </div>
-
-      <div class="d-flex px-4 justify-content-between">
-        <div class="text-primary d-flex align-items-baseline">
-          <i class="bi bi-image"></i>
-          <p class="text-secondary ms-1">Contenuti multimediali</p>
-        </div>
-        <div class="text-warning d-flex align-items-baseline">
-          <i class="bi bi-calendar3"></i>
-          <p class="text-secondary ms-1">Evento</p>
-        </div>
-        <div class="text-danger d-flex align-items-baseline">
-          <i class="bi bi-journal-richtext"></i>
-          <p class="text-secondary ms-1">Scrivi un articolo</p>
-        </div>
-      </div>
-      </div>
-<!-- POST --------------------------------------------------------------------------------------------- -->
-      <div class="bg-white border rounded-3 mt-3" >
-        <div class="d-flex align-items-start justify-content-between px-3">
-        <div class="d-flex align-items-center mt-2 py-3">
-
-        <div id="profile-img-post">
-          <img *ngIf="data" [src]="data.image" alt="" class="rounded-circle">
-        </div>
-        <div class="d-flex flex-column ms-2">
+          <div id="profile-img-post">
+            <img *ngIf="data" [src]="data.image" alt="" class="rounded-circle">
+          </div>
           <div>
-            <h6 class="mb-0">Nando Martellone <span class="text-secondary">&centerdot; 1&deg;</span></h6>
-            <p class="text-secondary p-0 m-0 user-info">Data Architect</p>
-            <p class="text-secondary p-0 m-0 user-info">21 minuti <span>&centerdot; <i class="bi bi-globe-americas"></i></span></p>
+            <form (submit)="createPost()" [formGroup]="formPost">
+            <input formControlName="text"  type="text" id="add-post" placeholder=" Avvia un post"
+                   class="rounded-pill border border-1 py-2 ms-3">
+            </form>
+          </div>
+        </div>
+
+        <div class="d-flex px-4 justify-content-between">
+          <div class="text-primary d-flex align-items-baseline">
+            <i class="bi bi-image"></i>
+            <p class="text-secondary ms-1">Contenuti multimediali</p>
+          </div>
+          <div class="text-warning d-flex align-items-baseline">
+            <i class="bi bi-calendar3"></i>
+            <p class="text-secondary ms-1">Evento</p>
+          </div>
+          <div class="text-danger d-flex align-items-baseline">
+            <i class="bi bi-journal-richtext"></i>
+            <p class="text-secondary ms-1">Scrivi un articolo</p>
           </div>
         </div>
       </div>
-      <div class="d-flex mt-2">
-        <i class="bi bi-three-dots text-secondary me-2"></i>
-        <i class="bi bi-x-lg text-secondary"></i>
-      </div>
-    </div>
-    <div>
-      <p class="ms-4">Annuncio il mio nuovo spettacolo Bucio de CUUULOO</p>
-    </div>
-      <div class="d-flex px-4 justify-content-between">
-        <div class="img-comment d-flex">
-          <img *ngIf="data" [src]="data.image" alt="profile-pic" class="rounded-circle">
-          <i class="bi bi-caret-down-fill text-secondary ms-1"></i>
-        </div>
-        <div class=" d-flex align-items-baseline">
-          <i class="bi bi-hand-thumbs-up text-secondary"></i>
-          <p class="text-secondary ms-1">Consiglia</p>
-        </div>
-        <div class=" d-flex align-items-baseline">
-          <i class="bi bi-chat-text text-secondary"></i>
-          <p class="text-secondary ms-1">Commenta</p>
-        </div>
-        <div class=" d-flex align-items-baseline">
-          <i class="bi bi-arrow-left-right text-secondary"></i>
-          <p class="text-secondary ms-1">Diffondi il post</p>
-        </div>
-        <div class=" d-flex align-items-baseline">
-          <i class="bi bi-send text-secondary"></i>
-          <p class="text-secondary ms-1">Invia</p>
-        </div>
-      </div>
-      <div class="d-flex align-items-center mt-2 mx-auto p-3">
-        <div id="profile-img-comment">
-          <img *ngIf="data" [src]="data.image" alt="" class="rounded-circle">
+      <!-- POST --------------------------------------------------------------------------------------------- -->
+      <div class="bg-white border rounded-3 mt-3">
+        <div class="d-flex align-items-start justify-content-between px-3">
+          <div class="d-flex align-items-center mt-2 py-3">
+
+            <div id="profile-img-post">
+              <img *ngIf="data" [src]="data.image" alt="" class="rounded-circle">
+            </div>
+            <div class="d-flex flex-column ms-2">
+              <div>
+                <h6 class="mb-0">Nando Martellone <span class="text-secondary">&centerdot; 1&deg;</span></h6>
+                <p class="text-secondary p-0 m-0 user-info">Data Architect</p>
+                <p class="text-secondary p-0 m-0 user-info">21 minuti <span>&centerdot; <i
+                  class="bi bi-globe-americas"></i></span></p>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex mt-2">
+            <i class="bi bi-three-dots text-secondary me-2"></i>
+            <i class="bi bi-x-lg text-secondary"></i>
+          </div>
         </div>
         <div>
-          <input type="text" id="add-post" placeholder=" Aggiungi un commento..." class="rounded-pill border border-1 py-1 ms-2 border border-2">
+          <p class="ms-4">Annuncio il mio nuovo spettacolo Bucio de CUUULOO</p>
         </div>
-      </div>
+        <div class="d-flex px-4 justify-content-between">
+          <div class="img-comment d-flex">
+            <img *ngIf="data" [src]="data.image" alt="profile-pic" class="rounded-circle">
+            <i class="bi bi-caret-down-fill text-secondary ms-1"></i>
+          </div>
+          <div class=" d-flex align-items-baseline">
+            <i class="bi bi-hand-thumbs-up text-secondary"></i>
+            <p class="text-secondary ms-1">Consiglia</p>
+          </div>
+          <div class=" d-flex align-items-baseline">
+            <i class="bi bi-chat-text text-secondary"></i>
+            <p class="text-secondary ms-1">Commenta</p>
+          </div>
+          <div class=" d-flex align-items-baseline">
+            <i class="bi bi-arrow-left-right text-secondary"></i>
+            <p class="text-secondary ms-1">Diffondi il post</p>
+          </div>
+          <div class=" d-flex align-items-baseline">
+            <i class="bi bi-send text-secondary"></i>
+            <p class="text-secondary ms-1">Invia</p>
+          </div>
+        </div>
+        <div class="d-flex align-items-center mt-2 mx-auto p-3">
+          <div id="profile-img-comment">
+            <img *ngIf="data" [src]="data.image" alt="" class="rounded-circle">
+          </div>
+          <div>
+            <input type="text" id="add-post" placeholder=" Aggiungi un commento..."
+                   class="rounded-pill border border-1 py-1 ms-2 border border-2">
+          </div>
+        </div>
       </div>
 
       <div class="bg-white border rounded-3 mt-3" *ngFor="let post of maxPostToDisplay">
@@ -113,15 +118,17 @@
             </div>
             <div class="d-flex flex-column ms-2">
               <div>
-                <h6 class="mb-0">{{post.user.name}} {{post.user.surname}} <span class="text-secondary">&centerdot; 1&deg;</span></h6>
+                <h6 class="mb-0">{{post.user.name}} {{post.user.surname}} <span class="text-secondary">&centerdot; 1&deg;</span>
+                </h6>
                 <p class="text-secondary p-0 m-0 user-info">{{post.user.title}}</p>
-                <p class="text-secondary p-0 m-0 user-info">21 minuti <span>&centerdot; <i class="bi bi-globe-americas"></i></span></p>
+                <p class="text-secondary p-0 m-0 user-info">21 minuti <span>&centerdot; <i
+                  class="bi bi-globe-americas"></i></span></p>
               </div>
             </div>
           </div>
           <div class="d-flex mt-2">
             <i class="bi bi-three-dots text-secondary me-2"></i>
-            <i class="bi bi-x-lg text-secondary"></i>
+            <i class="bi bi-x-lg text-secondary" *ngIf="post.user._id === data._id" (click)="deletePost(post._id)"></i>
           </div>
         </div>
         <div>
@@ -154,7 +161,8 @@
             <img *ngIf="data" [src]="data.image" alt="" class="rounded-circle">
           </div>
           <div>
-            <input type="text" id="add-post" placeholder=" Aggiungi un commento..." class="rounded-pill border border-1 py-1 ms-2 border border-2">
+            <input type="text" id="add-post" placeholder=" Aggiungi un commento..."
+                   class="rounded-pill border border-1 py-1 ms-2 border border-2">
           </div>
         </div>
         <div class="comment area" *ngFor="let comment of maxCommentToDisplay">
@@ -166,73 +174,71 @@
       </div>
 
 
-
-
     </div>
     <div class="col col-3  mt-4 ">
       <div class="bg-white border rounded-3 py-3">
-      <!--inizio colonna destra -->
-      <div class="d-flex flex-column p-2">
-        <div class="p-2 d-flex justify-content-between">
-          <h6>Add to your feed</h6>
-          <i class="bi bi-info-square-fill pt-2 clickable"></i>
-        </div>
+        <!--inizio colonna destra -->
+        <div class="d-flex flex-column p-2">
+          <div class="p-2 d-flex justify-content-between">
+            <h6>Add to your feed</h6>
+            <i class="bi bi-info-square-fill pt-2 clickable"></i>
+          </div>
 
-        <div class="d-flex align-items-center">
-          <div class="logo-box me-3 clickable">
-            <img src="../../../assets/img/meta.jpg" alt="logo" class="logo img-fluid">
+          <div class="d-flex align-items-center">
+            <div class="logo-box me-3 clickable">
+              <img src="../../../assets/img/meta.jpg" alt="logo" class="logo img-fluid">
+            </div>
+            <div class="d-flex flex-column align-items-start">
+              <p class="h6 m-0 clickable">
+                Meta
+              </p>
+              <small class="mt-2">
+                Company &centerdot; Computer Software
+              </small>
+              <button class="btn border-dark rounded-pill follow-btn mt-2">+ Follow</button>
+            </div>
           </div>
-          <div class="d-flex flex-column align-items-start">
-            <p class="h6 m-0 clickable">
-              Meta
-            </p>
-            <small class="mt-2">
-              Company &centerdot; Computer Software
-            </small>
-            <button class="btn border-dark rounded-pill follow-btn mt-2">+ Follow</button>
-          </div>
-        </div>
 
-        <div class="d-flex align-items-center mt-3">
-          <div class="logo-box me-3 clickable">
-            <img src="../../../assets/img/amazon.jpg" alt="logo" class="img-fluid">
+          <div class="d-flex align-items-center mt-3">
+            <div class="logo-box me-3 clickable">
+              <img src="../../../assets/img/amazon.jpg" alt="logo" class="img-fluid">
+            </div>
+            <div class="d-flex flex-column align-items-start">
+              <p class="h6 m-0 clickable">
+                Amazon
+              </p>
+              <small class="mt-2">
+                Company &centerdot; Computer Software
+              </small>
+              <button class="btn border-dark rounded-pill follow-btn mt-2">+ Follow</button>
+            </div>
           </div>
-          <div class="d-flex flex-column align-items-start">
-            <p class="h6 m-0 clickable">
-              Amazon
-            </p>
-            <small class="mt-2">
-              Company &centerdot; Computer Software
-            </small>
-            <button class="btn border-dark rounded-pill follow-btn mt-2">+ Follow</button>
-          </div>
-        </div>
 
-        <div class="d-flex align-items-center mt-3">
-          <div class="logo-box me-3 clickable">
-            <img src="../../../assets/img/adobe.jpg" alt="logo" class="img-fluid">
+          <div class="d-flex align-items-center mt-3">
+            <div class="logo-box me-3 clickable">
+              <img src="../../../assets/img/adobe.jpg" alt="logo" class="img-fluid">
+            </div>
+            <div class="d-flex flex-column align-items-start">
+              <p class="h6 m-0 clickable">
+                Adobe
+              </p>
+              <small class="mt-2">
+                Company &centerdot; Computer Software
+              </small>
+              <button class="btn border-dark rounded-pill follow-btn mt-2">+ Follow</button>
+            </div>
           </div>
-          <div class="d-flex flex-column align-items-start">
-            <p class="h6 m-0 clickable">
-              Adobe
-            </p>
-            <small class="mt-2">
-              Company &centerdot; Computer Software
-            </small>
-            <button class="btn border-dark rounded-pill follow-btn mt-2">+ Follow</button>
-          </div>
-        </div>
-        <div class="d-flex align-items-center gap-1 clickable recommendation mt-4 ms-2 justify-content-start p-1">
+          <div class="d-flex align-items-center gap-1 clickable recommendation mt-4 ms-2 justify-content-start p-1">
             <p class="m-0">View all recommendation </p>
             <i class="bi bi-arrow-right pt-1"></i>
+          </div>
         </div>
       </div>
-    </div>
       <div class="bg-white border rounded-3 py-3 mt-2 clickable">
-          <div class="d-flex justify-content-end pe-3 gap-1 mt-2">
-            <p class="m-0">Ad</p>
-            <i class="bi bi-three-dots clickable"></i>
-          </div>
+        <div class="d-flex justify-content-end pe-3 gap-1 mt-2">
+          <p class="m-0">Ad</p>
+          <i class="bi bi-three-dots clickable"></i>
+        </div>
         <div class="d-flex justify-content-center flex-column align-items-center mt-2">
           <small *ngIf="data">{{data.name}}, boost your jon search with Premium</small>
           <div class="d-flex mt-2">

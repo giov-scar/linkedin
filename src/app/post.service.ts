@@ -36,6 +36,14 @@ export class PostService {
     });
   }
 
+  getAllComments():Observable<Icommentapi[]>{
+    return this.http.get<Icommentapi[]>(environment.COMMENT_URL , {
+      headers:{
+        authorization: environment.COMMENT_KEY
+      }
+    })
+  }
+
   insertNewComment(data: Partial<Icommentapi>) {
     return this.http.post(environment.COMMENT_URL, data);
   }

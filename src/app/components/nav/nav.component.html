@@ -1,10 +1,12 @@
 <div class="container-fluid">
   <div class="row align-items-center justify-content-center">
-    <div class="col-5">
+    <div class="col-1 me-1 me-lg-0" [ngClass]="class">
       <form class="d-flex" role="search">
         <img src="../../../assets/img/icons8-linkedin-48.png" alt="logo"/>
-        <input
-          class="form-control me-2"
+        <input #search
+               (focus)="changeStat()"
+               (focusout)="changeStat()"
+          class="form-control me-2 d-none d-lg-flex"
           type="search"
           placeholder="    Search"
           aria-label="Search"
@@ -12,6 +14,12 @@
       </form>
     </div>
     <div class="col-6 d-flex gap-5">
+      <div
+        class="d-flex d-lg-none justify-content-center align-items-start flex-column section"
+      >
+        <i class="bi bi-search menu"></i>
+        <p class="m-0">Search</p>
+      </div>
       <div
         class="d-flex justify-content-center align-items-center flex-column section"
         routerLink="/home"

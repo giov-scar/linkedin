@@ -46,8 +46,9 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.getMyProfile();
-    // this.getSpecific()
+    // this.getMyExp()
     this.getAll();
+    this.getAllPost();
     // form inserimento dati profilo
 
     this.form = this.fb.group({
@@ -72,15 +73,17 @@ export class ProfileComponent implements OnInit {
       role: this.fb.control(null, [Validators.required]),
       company: this.fb.control(null, [Validators.required]),
       startDate: this.fb.control(null, [Validators.required]),
-      endDate: this.fb.control(null, [Validators.required]),
+      endDate: this.fb.control(null),
       description: this.fb.control(null, [Validators.required]),
       area: this.fb.control(null, {}),
     });
   }
 
   send() {
-    this.profileSvc.modifyProfile(this.form.value);
-    this.getMyProfile();
+    this.profileSvc.modifyProfile(this.form.value).subscribe((data) => {
+      console.log(this.form.value, 'dati di modifica componente');
+      this.getMyProfile();
+    });
   }
 
   addExp() {

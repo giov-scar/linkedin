@@ -1,7 +1,7 @@
 <div class="d-flex px-4 justify-content-between">
   <div class="img-comment d-flex">
     <img *ngIf="data" [src]="data.image" alt="profile-pic" class="rounded-circle">
-    <i class="bi bi-caret-down-fill text-secondary ms-1"></i>
+    <i class="bi bi-caret-down-fill text-secondary ms-1" (click)="getAllComments()"></i>
   </div>
   <div class=" d-flex align-items-baseline">
     <i class="bi bi-hand-thumbs-up text-secondary"></i>
@@ -31,5 +31,10 @@
              placeholder=" Aggiungi un commento..."
              class="rounded-pill border border-1 py-1 ms-2 border border-2">
     </form>
+    <div *ngIf="allComments">
+      <p *ngFor="let comment of allComments">
+        {{comment.comment}}
+      </p>
+    </div>
   </div>
 </div>

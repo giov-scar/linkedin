@@ -40,10 +40,10 @@ export class FooterPostComponent implements OnInit {
     // )
   }
 
-  getAllComments(elId: string) {
-    this.postSvc.getAllComments(elId).subscribe((data: Icommentapi[]): void => {
-      // console.log(data, 'commenti')
+  getAllComments() {
+    this.postSvc.getAllComments(this.elId).subscribe((data: Icommentapi[]): void => {
       data.reverse()
+       console.log(data, 'commenti')
       this.allComments = data
       this.maxCommentToDisplay = data.slice(0, 50).reverse()
     })
@@ -64,8 +64,7 @@ export class FooterPostComponent implements OnInit {
     // this.newComment= {...this.formComment.value}
     // console.log(this.newComment, 'oggetto2')
     this.postSvc.insertNewComment(this.newComment).subscribe((data) => {
-        this.getAllComments(this.elId)
-        console.log(this.maxCommentToDisplay)
+        this.getAllComments()
       }
     )
   }

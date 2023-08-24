@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   allPost!: PostApiResp[];
   comment!:Partial<PostApiResp>
   formPost!: FormGroup;
-  // formComment!: FormGroup;
+   formComment!: FormGroup;
   commentString:string = ''
   maxPostToDisplay!: PostApiResp[]
   maxCommentToDisplay!: Icommentapi[]
@@ -46,11 +46,11 @@ export class HomeComponent implements OnInit {
     this.formPost = this.fb.group({
       text: this.fb.control(null, [Validators.required]),
     });
-    // this.formComment = this.fb.group(
-    //   {
-    //     comment:this.fb.control(null)
-    //   }
-    // )
+     // this.formComment = this.fb.group(
+     //   {
+     //     comment:this.fb.control(null)
+     //   }
+     // )
   }
 
   getMyProfile() {
@@ -92,10 +92,12 @@ export class HomeComponent implements OnInit {
     })
   }
   insertComment(elId:string){
-    this.newComment.comment = this.commentString
-    this.newComment.elementId = elId
-    console.log(this.newComment)
-    this.postSvc.insertNewComment(this.newComment).subscribe(data=>this.getAllComments(elId))
+    // this.newComment.comment = this.commentString
+    // this.newComment.elementId = elId
+    // console.log(this.formComment.value, 'oggetto')
+    // this.newComment= {...this.formComment.value}
+    // console.log(this.newComment, 'oggetto2')
+    //  this.postSvc.insertNewComment(this.newComment).subscribe(data=>this.getAllComments(elId))
   }
 
 }

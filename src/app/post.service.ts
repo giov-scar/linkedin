@@ -50,9 +50,4 @@ export class PostService {
         authorization: environment.COMMENT_KEY
       }
     });
-  }
-  postComment(id: string, contenuto: Icommentapi) {
-    return this.http.post(environment.COMMENT_URL, contenuto, {
-      headers: { Authorization: environment.COMMENT_KEY},
-    });
 }}

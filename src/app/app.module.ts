@@ -14,6 +14,7 @@ import { JobsComponent } from './components/jobs/jobs.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FooterPostComponent } from './components/footer-post/footer-post.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     JobsComponent,
     NotificationsComponent,
     UserProfileComponent,
+    FooterPostComponent,
   ],
     imports: [
         BrowserModule,

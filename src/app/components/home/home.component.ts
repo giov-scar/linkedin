@@ -5,6 +5,7 @@ import { IApiResp } from 'src/app/models/iapi-resp';
 import { PostApiResp } from 'src/app/models/post-api-resp';
 import { PostService } from 'src/app/post.service';
 import { ProfileService } from 'src/app/profile.service';
+import {Icommentapi} from "../../models/icommentapi";
 
 @Component({
   selector: 'app-home',
@@ -13,9 +14,11 @@ import { ProfileService } from 'src/app/profile.service';
 })
 export class HomeComponent implements OnInit {
   data!: IApiResp;
+  allComments!:Icommentapi[];
   allPost!: PostApiResp[];
   toDelete: string = '64e713d4ad2497001469364b';
   formPost!: FormGroup;
+  toSeeComments: string = 'tt0399295'
   constructor(
     private profileSvc: ProfileService,
     private postSvc: PostService,
@@ -24,6 +27,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.getMyProfile();
     this.getAll();
+    // this.getAllComments();
     this.formPost = this.fb.group({
       text: this.fb.control(null, [Validators.required]),
     });
@@ -40,7 +44,8 @@ export class HomeComponent implements OnInit {
     this.postSvc.getAllPost().subscribe((data: PostApiResp[]) => {
       console.log(data);
       this.allPost = data;
-    });
+      this.getAllComments()
+    })
   }
 
   createPost() {
@@ -52,5 +57,12 @@ export class HomeComponent implements OnInit {
   deletePost() {
     console.log(this.toDelete);
     this.postSvc.deletePost(this.toDelete).subscribe((data) => this.getAll());
+  }
+
+  getAllComments(){
+    this.postSvc.getAllComments().subscribe((data:Icommentapi[]): void =>{
+      console.log(data, 'commenti')
+      this.allComments = data
+    })
   }
 }

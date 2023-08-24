@@ -36,8 +36,8 @@ export class PostService {
     });
   }
 
-  getAllComments():Observable<Icommentapi[]>{
-    return this.http.get<Icommentapi[]>(environment.COMMENT_URL , {
+  getAllComments(elId:string):Observable<Icommentapi[]>{
+    return this.http.get<Icommentapi[]>(environment.COMMENT_URL + elId , {
       headers:{
         authorization: environment.COMMENT_KEY
       }
@@ -45,6 +45,14 @@ export class PostService {
   }
 
   insertNewComment(data: Partial<Icommentapi>) {
-    return this.http.post(environment.COMMENT_URL, data);
+    return this.http.post(environment.COMMENT_URL, data, {
+      headers:{
+        authorization: environment.COMMENT_KEY
+      }
+    });
   }
-}
+  postComment(id: string, contenuto: Icommentapi) {
+    return this.http.post(environment.COMMENT_URL, contenuto, {
+      headers: { Authorization: environment.COMMENT_KEY},
+    });
+}}

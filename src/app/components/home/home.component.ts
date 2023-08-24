@@ -5,8 +5,8 @@ import { IApiResp } from 'src/app/models/iapi-resp';
 import { PostApiResp } from 'src/app/models/post-api-resp';
 import { PostService } from 'src/app/post.service';
 import { ProfileService } from 'src/app/profile.service';
-import {Icommentapi} from "../../models/icommentapi";
-import {FullPost} from "../../models/full-post";
+import { Icommentapi } from '../../models/icommentapi';
+import { FullPost } from '../../models/full-post';
 
 @Component({
   selector: 'app-home',
@@ -15,14 +15,14 @@ import {FullPost} from "../../models/full-post";
 })
 export class HomeComponent implements OnInit {
   data!: IApiResp;
-  allComments!:Icommentapi[];
+  allComments!: Icommentapi[];
   allPost!: PostApiResp[];
-  AllFullPost!:FullPost[];
+  AllFullPost!: FullPost[];
   toDelete: string = '64e713d4ad2497001469364b';
   formPost!: FormGroup;
-  maxPostToDisplay!:PostApiResp[]
-  maxCommentToDisplay!:Icommentapi[]
-  toSeeComments: string = 'tt0399295'
+  maxPostToDisplay!: PostApiResp[];
+  maxCommentToDisplay!: Icommentapi[];
+  toSeeComments: string = 'tt0399295';
   constructor(
     private profileSvc: ProfileService,
     private postSvc: PostService,
@@ -47,12 +47,11 @@ export class HomeComponent implements OnInit {
   getAll() {
     this.postSvc.getAllPost().subscribe((data: PostApiResp[]) => {
       console.log(data);
-      data.reverse()
+      data.reverse();
       this.allPost = data;
-      this.maxPostToDisplay = data.slice(0,50)
-      this.getAllComments()
-
-    })
+      this.maxPostToDisplay = data.slice(0, 50);
+      this.getAllComments();
+    });
   }
 
   createPost() {
@@ -66,12 +65,12 @@ export class HomeComponent implements OnInit {
     this.postSvc.deletePost(this.toDelete).subscribe((data) => this.getAll());
   }
 
-  getAllComments(){
-    this.postSvc.getAllComments().subscribe((data:Icommentapi[]): void =>{
-      console.log(data, 'commenti')
-      data.reverse()
-      this.allComments = data
-      this.maxCommentToDisplay = data.slice(0,50).reverse()
-    })
+  getAllComments() {
+    this.postSvc.getAllComments().subscribe((data: Icommentapi[]): void => {
+      console.log(data, 'commenti');
+      data.reverse();
+      this.allComments = data;
+      this.maxCommentToDisplay = data.slice(0, 50).reverse();
+    });
   }
 }

@@ -23,3 +23,9 @@
   border-radius: 5px;
   color: transparent;
   }
+.dropdown-toggle::after {
+  display: none;
+  }
+.show{
+  display: flex;
+  }

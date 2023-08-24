@@ -6,6 +6,7 @@ import { PostApiResp } from 'src/app/models/post-api-resp';
 import { PostService } from 'src/app/post.service';
 import { ProfileService } from 'src/app/profile.service';
 import {Icommentapi} from "../../models/icommentapi";
+import {FullPost} from "../../models/full-post";
 
 @Component({
   selector: 'app-home',
@@ -16,8 +17,11 @@ export class HomeComponent implements OnInit {
   data!: IApiResp;
   allComments!:Icommentapi[];
   allPost!: PostApiResp[];
+  AllFullPost!:FullPost[];
   toDelete: string = '64e713d4ad2497001469364b';
   formPost!: FormGroup;
+  maxPostToDisplay!:PostApiResp[]
+  maxCommentToDisplay!:Icommentapi[]
   toSeeComments: string = 'tt0399295'
   constructor(
     private profileSvc: ProfileService,
@@ -43,8 +47,11 @@ export class HomeComponent implements OnInit {
   getAll() {
     this.postSvc.getAllPost().subscribe((data: PostApiResp[]) => {
       console.log(data);
+      data.reverse()
       this.allPost = data;
+      this.maxPostToDisplay = data.slice(0,50)
       this.getAllComments()
+
     })
   }
 
@@ -62,7 +69,9 @@ export class HomeComponent implements OnInit {
   getAllComments(){
     this.postSvc.getAllComments().subscribe((data:Icommentapi[]): void =>{
       console.log(data, 'commenti')
+      data.reverse()
       this.allComments = data
+      this.maxCommentToDisplay = data.slice(0,50).reverse()
     })
   }
 }

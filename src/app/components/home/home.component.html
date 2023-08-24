@@ -49,7 +49,7 @@
       </div>
       </div>
 <!-- POST --------------------------------------------------------------------------------------------- -->
-      <div class="bg-white border rounded-3 mt-3">
+      <div class="bg-white border rounded-3 mt-3" >
         <div class="d-flex align-items-start justify-content-between px-3">
         <div class="d-flex align-items-center mt-2 py-3">
 
@@ -103,6 +103,70 @@
         </div>
       </div>
       </div>
+
+      <div class="bg-white border rounded-3 mt-3" *ngFor="let post of maxPostToDisplay">
+        <div class="d-flex align-items-start justify-content-between px-3">
+          <div class="d-flex align-items-center mt-2 py-3">
+
+            <div id="profile-img-post">
+              <img *ngIf="maxPostToDisplay" [src]="post.user.image" alt="" class="rounded-circle">
+            </div>
+            <div class="d-flex flex-column ms-2">
+              <div>
+                <h6 class="mb-0">{{post.user.name}} {{post.user.surname}} <span class="text-secondary">&centerdot; 1&deg;</span></h6>
+                <p class="text-secondary p-0 m-0 user-info">{{post.user.title}}</p>
+                <p class="text-secondary p-0 m-0 user-info">21 minuti <span>&centerdot; <i class="bi bi-globe-americas"></i></span></p>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex mt-2">
+            <i class="bi bi-three-dots text-secondary me-2"></i>
+            <i class="bi bi-x-lg text-secondary"></i>
+          </div>
+        </div>
+        <div>
+          <p class="ms-4">{{post.text}}</p>
+        </div>
+        <div class="d-flex px-4 justify-content-between">
+          <div class="img-comment d-flex">
+            <img *ngIf="data" [src]="data.image" alt="profile-pic" class="rounded-circle">
+            <i class="bi bi-caret-down-fill text-secondary ms-1"></i>
+          </div>
+          <div class=" d-flex align-items-baseline">
+            <i class="bi bi-hand-thumbs-up text-secondary"></i>
+            <p class="text-secondary ms-1">Consiglia</p>
+          </div>
+          <div class=" d-flex align-items-baseline">
+            <i class="bi bi-chat-text text-secondary"></i>
+            <p class="text-secondary ms-1">Commenta</p>
+          </div>
+          <div class=" d-flex align-items-baseline">
+            <i class="bi bi-arrow-left-right text-secondary"></i>
+            <p class="text-secondary ms-1">Diffondi il post</p>
+          </div>
+          <div class=" d-flex align-items-baseline">
+            <i class="bi bi-send text-secondary"></i>
+            <p class="text-secondary ms-1">Invia</p>
+          </div>
+        </div>
+        <div class="d-flex align-items-center mt-2 mx-auto p-3">
+          <div id="profile-img-comment">
+            <img *ngIf="data" [src]="data.image" alt="" class="rounded-circle">
+          </div>
+          <div>
+            <input type="text" id="add-post" placeholder=" Aggiungi un commento..." class="rounded-pill border border-1 py-1 ms-2 border border-2">
+          </div>
+        </div>
+        <div class="comment area" *ngFor="let comment of maxCommentToDisplay">
+          <p *ngIf="comment._id === post._id">
+            {{comment.comment}}
+            commento reale
+          </p>
+        </div>
+      </div>
+
+
+
 
     </div>
     <div class="col col-3  mt-4 ">

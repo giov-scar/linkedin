@@ -65,7 +65,8 @@
 
         <p class="m-0" id="dropdownBasic1" ngbDropdownToggle>Me</p>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-          <button ngbDropdownItem>
+          <div></div>
+          <button class="d-flex" ngbDropdownItem>
             <img
               class="img-cont"
               routerLink="/user-profile"
@@ -73,13 +74,13 @@
               [src]="data.image"
               alt="profilepic"
             />
-            <div class="d-flex flex-column">
+            <div class="flex-column">
               <span class="fw-bold ms-2"
                 >{{ data.name }} {{ data.surname }}</span
               >
               <p class="ms-2">{{ data.title }}</p>
               <button
-                class="btn btn-outline-primary w-100 text-center rounded-pill"
+                class="btn btn-outline-primary rounded-pill d-flex"
                 routerLink="/user-profile"
               >
                 Visualizza Profilo

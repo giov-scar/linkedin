@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col col-2 mt-4 ms-5 px-0">
+    <div class="col col-2 offset-1 mt-4 px-0 ">
       <div id="box-img">
         <img
           src="https://marketplace.canva.com/EAE2cQaUHVA/1/0/1600w/canva-black-minimal-motivation-quote-linkedin-banner-HoRi-2buBWk.jpg"
@@ -10,7 +10,7 @@
         </div>
       </div>
 
-      <div *ngIf="data" class="bg-white">
+      <div *ngIf="data" class="bg-white rounded-bottom-2">
         <h6 class="pt-4 text-center">{{data.name}} {{data.surname}}</h6>
         <p class="text-secondary text-center px-2">{{data.title}}</p>
         <hr>
@@ -21,16 +21,92 @@
       </div>
 
     </div>
-
-    <div class="col col-6 border mt-4 mx-2 p-0">
-      <div class="bg-white border rounded-5">
+    <!-- COLONNA CENTRALE -->
+    <div class="col col-5 mt-4 mx-2 p-0">
+      <div class="bg-white border rounded-3">
+        <div class="d-flex align-items-center mt-2 mx-auto p-3">
         <div id="profile-img-post">
           <img *ngIf="data" [src]="data.image" alt="" class="rounded-circle">
         </div>
+        <div>
+          <input type="text" id="add-post" placeholder=" Avvia un post" class="rounded-pill border border-1 py-2 ms-3">
+        </div>
+      </div>
+
+      <div class="d-flex px-4 justify-content-between">
+        <div class="text-primary d-flex align-items-baseline">
+          <i class="bi bi-image"></i>
+          <p class="text-secondary ms-1">Contenuti multimediali</p>
+        </div>
+        <div class="text-warning d-flex align-items-baseline">
+          <i class="bi bi-calendar3"></i>
+          <p class="text-secondary ms-1">Evento</p>
+        </div>
+        <div class="text-danger d-flex align-items-baseline">
+          <i class="bi bi-journal-richtext"></i>
+          <p class="text-secondary ms-1">Scrivi un articolo</p>
+        </div>
+      </div>
+      </div>
+<!-- POST --------------------------------------------------------------------------------------------- -->
+      <div class="bg-white border rounded-3 mt-3">
+        <div class="d-flex align-items-start justify-content-between px-3">
+        <div class="d-flex align-items-center mt-2 py-3">
+
+        <div id="profile-img-post">
+          <img *ngIf="data" [src]="data.image" alt="" class="rounded-circle">
+        </div>
+        <div class="d-flex flex-column ms-2">
+          <div>
+            <h6 class="mb-0">Nando Martellone <span class="text-secondary">&centerdot; 1&deg;</span></h6>
+            <p class="text-secondary p-0 m-0 user-info">Data Architect</p>
+            <p class="text-secondary p-0 m-0 user-info">21 minuti <span>&centerdot; <i class="bi bi-globe-americas"></i></span></p>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex mt-2">
+        <i class="bi bi-three-dots text-secondary me-2"></i>
+        <i class="bi bi-x-lg text-secondary"></i>
       </div>
     </div>
-    <div class="col col-3 border mt-4 border rounded-5">
-      <div class="bg-white border rounded-5 py-3">
+    <div>
+      <p class="ms-4">Annuncio il mio nuovo spettacolo Bucio de CUUULOO</p>
+    </div>
+      <div class="d-flex px-4 justify-content-between">
+        <div class="img-comment d-flex">
+          <img *ngIf="data" [src]="data.image" alt="profile-pic" class="rounded-circle">
+          <i class="bi bi-caret-down-fill text-secondary ms-1"></i>
+        </div>
+        <div class=" d-flex align-items-baseline">
+          <i class="bi bi-hand-thumbs-up text-secondary"></i>
+          <p class="text-secondary ms-1">Consiglia</p>
+        </div>
+        <div class=" d-flex align-items-baseline">
+          <i class="bi bi-chat-text text-secondary"></i>
+          <p class="text-secondary ms-1">Commenta</p>
+        </div>
+        <div class=" d-flex align-items-baseline">
+          <i class="bi bi-arrow-left-right text-secondary"></i>
+          <p class="text-secondary ms-1">Diffondi il post</p>
+        </div>
+        <div class=" d-flex align-items-baseline">
+          <i class="bi bi-send text-secondary"></i>
+          <p class="text-secondary ms-1">Invia</p>
+        </div>
+      </div>
+      <div class="d-flex align-items-center mt-2 mx-auto p-3">
+        <div id="profile-img-comment">
+          <img *ngIf="data" [src]="data.image" alt="" class="rounded-circle">
+        </div>
+        <div>
+          <input type="text" id="add-post" placeholder=" Aggiungi un commento..." class="rounded-pill border border-1 py-1 ms-2 border border-2">
+        </div>
+      </div>
+      </div>
+
+    </div>
+    <div class="col col-3  mt-4 ">
+      <div class="bg-white border rounded-3 py-3">
       <!--inizio colonna destra -->
       <div class="d-flex flex-column p-2">
         <div class="p-2 d-flex justify-content-between">
@@ -88,7 +164,7 @@
         </div>
       </div>
     </div>
-      <div class="bg-white border rounded-5 py-3 mt-2 clickable">
+      <div class="bg-white border rounded-3 py-3 mt-2 clickable">
           <div class="d-flex justify-content-end pe-3 gap-1 mt-2">
             <p class="m-0">Ad</p>
             <i class="bi bi-three-dots clickable"></i>

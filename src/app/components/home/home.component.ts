@@ -14,7 +14,7 @@ import { ProfileService } from 'src/app/profile.service';
 export class HomeComponent implements OnInit {
   data!: IApiResp;
   allPost!: PostApiResp[];
-  toDelete: string = '64e713d4ad2497001469364b';
+  toDelete: string = '64e71bbead24970014693661';
   formPost!: FormGroup;
   constructor(
     private profileSvc: ProfileService,

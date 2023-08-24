@@ -21,6 +21,7 @@ export class FooterPostComponent {
     elementId: '',
   }
   @Input() elId!: string
+  @Input() userPostId!: string
 
   constructor(
     private profileSvc: ProfileService,
@@ -35,6 +36,7 @@ export class FooterPostComponent {
       console.log(data, 'commenti')
       this.allComments = data
       this.maxCommentToDisplay = data.slice(0, 50).reverse()
+
     })
   }
 
@@ -52,9 +54,14 @@ export class FooterPostComponent {
     console.log(this.newComment)
     this.postSvc.insertNewComment(this.newComment).subscribe((data) => {
         this.getAllComments()
-
       }
     )
+  }
+  deleteComment(commentId:string){
+    this.postSvc.deleteComment(commentId).subscribe(data=>{
+      console.log('eliminato')
+      this.getAllComments()
+    })
   }
 
 }

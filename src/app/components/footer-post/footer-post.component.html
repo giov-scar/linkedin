@@ -22,20 +22,22 @@
   </div>
 </div>
 <div class="d-flex align-items-center mt-2 mx-auto p-3">
-  <div id="profile-img-comment">
-    <img *ngIf="data" [src]="data.image" alt="" class="rounded-circle">
-  </div>
+<!--  <div id="profile-img-comment">-->
+<!--    <img *ngIf="data" [src]="data.image" alt="" class="rounded-circle">-->
+<!--  </div>-->
   <div>
     <form (submit)="insertComment()">
       <input [(ngModel)]="commentString" [ngModelOptions]="{standalone: true}" type="text" id="add-post"
              placeholder=" Aggiungi un commento..."
              class="rounded-pill border border-1 py-1 ms-2 border border-2">
     </form>
-    <div *ngIf="allComments">
-      <p *ngFor="let comment of allComments">
-        {{comment.comment}}
-        <span>{{data._id}} , {{comment.elementId}}</span>
-      </p>
+    <div *ngIf="allComments" class="d-flex flex-column">
+      <div *ngFor="let comment of allComments" class="d-flex justify-content-between px-5">
+        <p>
+          {{comment.comment}}
+        </p>
+        <i class="bi bi-x-lg text-secondary" *ngIf="userPostId === data._id" (click)="deleteComment(comment._id)"></i>
+      </div>
     </div>
   </div>
 </div>

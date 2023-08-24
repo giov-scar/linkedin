@@ -158,7 +158,8 @@
           <p class="ms-4">{{post.text}}</p>
         </div>
         <!--          component qui-->
-        <app-footer-post [elId]="post._id">
+        <app-footer-post [elId]="post._id"
+        [userPostId]="post.user._id" >
 
         </app-footer-post>
 

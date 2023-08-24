@@ -10,7 +10,7 @@ import {IApiResp} from "../../models/iapi-resp";
   templateUrl: './footer-post.component.html',
   styleUrls: ['./footer-post.component.scss']
 })
-export class FooterPostComponent implements OnInit {
+export class FooterPostComponent {
   allComments!: Icommentapi[];
   maxCommentToDisplay!: Icommentapi[];
   data!: IApiResp;
@@ -22,49 +22,37 @@ export class FooterPostComponent implements OnInit {
   }
   @Input() elId!: string
 
-  // formComment!: FormGroup;
-
   constructor(
     private profileSvc: ProfileService,
     private postSvc: PostService,
-    // private fb: FormBuilder
   ) {
-    // this.getMyProfile()
-  }
-
-  ngOnInit() {
-    // this.formComment = this.fb.group(
-    //   {
-    //     comment: this.fb.control(null)
-    //   }
-    // )
   }
 
   getAllComments() {
+    this.getMyProfile()
     this.postSvc.getAllComments(this.elId).subscribe((data: Icommentapi[]): void => {
       data.reverse()
-       console.log(data, 'commenti')
+      console.log(data, 'commenti')
       this.allComments = data
       this.maxCommentToDisplay = data.slice(0, 50).reverse()
     })
   }
 
-  // getMyProfile() {
-  //   this.profileSvc.getMyProfile().subscribe((data) => {
-  //     // console.log(data);
-  //     this.data = data;
-  //   });
-  // }
+  getMyProfile() {
+    this.profileSvc.getMyProfile().subscribe((data) => {
+      this.data = data;
+      console.log(data, 'profilo fetch')
+    });
+  }
 
   insertComment() {
     this.newComment.comment = this.commentString
     this.newComment.elementId = this.elId
     console.log(this.commentString, 'oggetto')
     console.log(this.newComment)
-    // this.newComment= {...this.formComment.value}
-    // console.log(this.newComment, 'oggetto2')
     this.postSvc.insertNewComment(this.newComment).subscribe((data) => {
         this.getAllComments()
+
       }
     )
   }

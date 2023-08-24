@@ -34,6 +34,7 @@
     <div *ngIf="allComments">
       <p *ngFor="let comment of allComments">
         {{comment.comment}}
+        <span>{{data._id}} , {{comment.elementId}}</span>
       </p>
     </div>
   </div>

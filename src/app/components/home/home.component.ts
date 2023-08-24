@@ -6,7 +6,7 @@ import { PostApiResp } from 'src/app/models/post-api-resp';
 import { PostService } from 'src/app/post.service';
 import { ProfileService } from 'src/app/profile.service';
 import {Icommentapi} from "../../models/icommentapi";
-import {FullPost} from "../../models/full-post";
+// import {FullPost} from "../../models/full-post";
 
 @Component({
   selector: 'app-home',
@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   data!: IApiResp;
   allComments!:Icommentapi[];
   allPost!: PostApiResp[];
-  AllFullPost!:FullPost[];
+  // AllFullPost!:FullPost[];
   toDelete: string = '64e713d4ad2497001469364b';
   formPost!: FormGroup;
   maxPostToDisplay!:PostApiResp[]

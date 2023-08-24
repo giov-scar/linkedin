@@ -10,14 +10,32 @@
         </div>
       </div>
 
-      <div *ngIf="data" class="bg-white rounded-bottom-2">
+      <div *ngIf="data" class="bg-white rounded-bottom-2 pb-2">
         <h6 class="pt-4 text-center">{{data.name}} {{data.surname}}</h6>
         <p class="text-secondary text-center px-2">{{data.title}}</p>
         <hr>
-        <p>Collegamenti</p>
-        <p>Espandi la tua rete</p>
-        <p>Chi ha visitato il tuo profilo</p>
+        <p class="mb-0 text-secondary px-2">Collegamenti</p>
+        <p class="mb-0 text-secondary px-2">Espandi la tua rete</p>
+        <p class="mb-0 text-secondary px-2"><a href="https://www.youtube.com/watch?v=kWHAEydIIB4" class="text-secondary text-decoration-none" target="_blank">Chi ha visitato il tuo profilo</a></p>
         <hr>
+        <p class="mb-0 text-secondary px-2">Accedi a strumenti e informazioni in esclusiva</p>
+        <p class="mb-0 px-2 text-decoration-underline">Fatti assumere più velocemente prova premium gratis</p>
+        <hr>
+        <i class="bi bi-bookmark-fill text-secondary px-2"></i> <span>I miei elementi</span>
+      </div>
+      <div class="bg-white rounded-2 pb-2 mt-2">
+        <div class="d-flex align-items-center justify-content-between">
+          <div class="mt-2">
+            <p class="px-2 text-primary fw-bold mb-2">Gruppi</p>
+            <p class="px-2 text-primary fw-bold mb-2">Eventi</p>
+            <p class="px-2 text-primary fw-bold mb-2">Hashtag seguiti</p>
+          </div>
+          <div>
+            <i class="bi bi-plus text-secondary fs-2 pe-2"></i>
+          </div>
+        </div>
+        <hr>
+        <h6 class="px-2 text-secondary">Scopri di più</h6>
       </div>
 
     </div>
@@ -244,14 +262,14 @@
         <div class="d-flex justify-content-center flex-column align-items-center mt-2">
           <small *ngIf="data">{{data.name}}, boost your jon search with Premium</small>
           <div class="d-flex mt-2">
-            <div class="logo-box">
-              <img *ngIf="data" [src]="data.image" alt="profile pic" class="profile-pic">
+            <div class="logo-box-ad me-2 ">
+              <img *ngIf="data" [src]="data.image" alt="profile pic" class="profile-pic rounded-circle">
             </div>
             <div>
               <img src="../../../assets/img/premium.jpg" alt="linkedin-logo" class="profile-pic">
             </div>
           </div>
-          <p>See who's viewed your profile in the last 90 days</p>
+          <p class="px-3">See who's viewed your profile in the last 90 days</p>
           <button class="btn border-2 border-primary text-primary rounded-pill mt-2">Try for free!</button>
         </div>
       </div>

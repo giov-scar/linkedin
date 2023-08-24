@@ -17,8 +17,8 @@ import { IApiResp } from './models/iapi-resp';
 export class ProfileService {
   constructor(private http: HttpClient, private router: Router) {}
 
-  getAllProfile(): Observable<IApiResp> {
-    return this.http.get<IApiResp>(`${environment.BASE_URL}`);
+  getAllProfile(): Observable<IApiResp[]> {
+    return this.http.get<IApiResp[]>(`${environment.BASE_URL}`);
   }
 
   getMyProfile(): Observable<IApiResp> {

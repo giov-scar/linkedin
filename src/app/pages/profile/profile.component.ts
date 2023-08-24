@@ -39,6 +39,7 @@ export class ProfileComponent implements OnInit {
     this.getMyProfile()
     // this.getMyExp()
     this.getAll()
+    this.getAllPost()
     // form inserimento dati profilo
 
     this.form = this.fb.group({
@@ -78,7 +79,7 @@ export class ProfileComponent implements OnInit {
         [Validators.required]
       ),
       startDate: this.fb.control(null, [Validators.required]),
-      endDate: this.fb.control(null, [Validators.required]),
+      endDate: this.fb.control(null),
       description: this.fb.control(null, [Validators.required]),
       area: this.fb.control(null, {})
     })
@@ -87,8 +88,10 @@ export class ProfileComponent implements OnInit {
   }
 
   send() {
-    this.profileSvc.modifyProfile(this.form.value)
+    this.profileSvc.modifyProfile(this.form.value).subscribe(data=>{
+      console.log(this.form.value, 'dati di modifica componente')
     this.getMyProfile()
+    })
   }
 
   addExp() {

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {ProfileService} from "../../profile.service";
 import {PostService} from "../../post.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
@@ -20,6 +20,8 @@ export class FooterPostComponent implements OnInit {
     rate: 1,
     elementId: '',
   }
+  @Input() elId!: string
+
   // formComment!: FormGroup;
 
   constructor(
@@ -54,14 +56,18 @@ export class FooterPostComponent implements OnInit {
   //   });
   // }
 
-  insertComment(elId: string = '64e78915c034ff001403f43e') {
+  insertComment() {
     this.newComment.comment = this.commentString
-    this.newComment.elementId = elId
+    this.newComment.elementId = this.elId
     console.log(this.commentString, 'oggetto')
     console.log(this.newComment)
     // this.newComment= {...this.formComment.value}
     // console.log(this.newComment, 'oggetto2')
-    //  this.postSvc.insertNewComment(this.newComment).subscribe(data=>this.getAllComments(elId))
+    this.postSvc.insertNewComment(this.newComment).subscribe((data) => {
+        this.getAllComments(this.elId)
+        console.log(this.maxCommentToDisplay)
+      }
+    )
   }
 
 }

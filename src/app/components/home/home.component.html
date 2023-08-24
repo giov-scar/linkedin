@@ -158,7 +158,9 @@
           <p class="ms-4">{{post.text}}</p>
         </div>
         <!--          component qui-->
-        <app-footer-post></app-footer-post>
+        <app-footer-post [elId]="post._id">
+
+        </app-footer-post>
 
         <!--    fine    -->
         <div class="comment area" *ngFor="let comment of allComments">

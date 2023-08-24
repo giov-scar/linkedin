@@ -17,17 +17,26 @@ export class HomeComponent implements OnInit {
   data!: IApiResp;
   allComments!: Icommentapi[];
   allPost!: PostApiResp[];
-  AllFullPost!: FullPost[];
-  toDelete: string = '64e713d4ad2497001469364b';
+  comment!: Partial<PostApiResp>;
   formPost!: FormGroup;
+  // formComment!: FormGroup;
+  commentString: string = '';
   maxPostToDisplay!: PostApiResp[];
   maxCommentToDisplay!: Icommentapi[];
+  newComment: Partial<Icommentapi> = {
+    comment: '',
+    rate: 1,
+    elementId: '',
+  };
+
   toSeeComments: string = 'tt0399295';
+
   constructor(
     private profileSvc: ProfileService,
     private postSvc: PostService,
     private fb: FormBuilder
   ) {}
+
   ngOnInit(): void {
     this.getMyProfile();
     this.getAll();
@@ -35,6 +44,11 @@ export class HomeComponent implements OnInit {
     this.formPost = this.fb.group({
       text: this.fb.control(null, [Validators.required]),
     });
+    // this.formComment = this.fb.group(
+    //   {
+    //     comment:this.fb.control(null)
+    //   }
+    // )
   }
 
   getMyProfile() {
@@ -55,22 +69,30 @@ export class HomeComponent implements OnInit {
   }
 
   createPost() {
-    this.postSvc
-      .insertNewPost(this.formPost.value)
-      .subscribe((data) => this.getAll());
+    this.postSvc.insertNewPost(this.formPost.value).subscribe((data) => {
+      this.getAll();
+      this.formPost.reset();
+    });
   }
 
-  deletePost() {
-    console.log(this.toDelete);
-    this.postSvc.deletePost(this.toDelete).subscribe((data) => this.getAll());
+  deletePost(toDelete: string) {
+    this.postSvc.deletePost(toDelete).subscribe((data) => this.getAll());
   }
 
-  getAllComments() {
-    this.postSvc.getAllComments().subscribe((data: Icommentapi[]): void => {
+  getAllComments(elId: string) {
+    this.postSvc.getAllComments(elId).subscribe((data: Icommentapi[]): void => {
       console.log(data, 'commenti');
       data.reverse();
       this.allComments = data;
       this.maxCommentToDisplay = data.slice(0, 50).reverse();
     });
+  }
+  insertComment(elId: string) {
+    this.newComment.comment = this.commentString;
+    this.newComment.elementId = elId;
+    console.log(this.newComment);
+    this.postSvc
+      .insertNewComment(this.newComment)
+      .subscribe((data) => this.getAllComments(elId));
   }
 }

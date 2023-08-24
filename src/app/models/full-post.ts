@@ -3,4 +3,5 @@ import {PostApiResp} from "./post-api-resp";
 
 export interface FullPost extends Icommentapi, PostApiResp{
 
+
 }

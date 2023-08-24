@@ -7,7 +7,7 @@ export interface PostApiResp extends IApiResp{
   username: string, 											// server generated
   createdAt: string, 	// server generated
   updatedAt: string, 	// server generated
-  __v: number 																	// server generated
-  user: IApiResp
+  __v: number, 																	// server generated
+  user: IApiResp;
 }
 

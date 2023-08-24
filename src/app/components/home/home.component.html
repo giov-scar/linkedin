@@ -185,10 +185,9 @@
             </form>
           </div>
         </div>
-        <div class="comment area" *ngFor="let comment of maxCommentToDisplay">
-          <p *ngIf="comment._id === post._id">
+        <div class="comment area" *ngFor="let comment of allComments" >
+          <p *ngIf="comment.elementId === post._id" >
             {{comment.comment}}
-            commento reale
           </p>
         </div>
       </div>

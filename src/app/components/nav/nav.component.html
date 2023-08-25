@@ -65,9 +65,8 @@
           id="profile-pic"
           [src]="data.image"
           alt="profilepic"
-          class="w-75"
-          id="dropdownBasic1"
           ngbDropdownToggle
+          style="width: 30px; height: 30px;"
         />
 
         <p class="m-0" id="dropdownBasic1" ngbDropdownToggle>Me</p>
@@ -75,11 +74,12 @@
           <div></div>
           <button class="d-flex" ngbDropdownItem>
             <img
-              class="img-cont"
+              class="img-cont rounded-circle"
               routerLink="/user-profile"
               id="profile-pic "
               [src]="data.image"
               alt="profilepic"
+              style="width: 30px; height: 30px;"
             />
             <div class="flex-column">
               <span class="fw-bold ms-2"

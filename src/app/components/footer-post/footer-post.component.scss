@@ -1,34 +1,34 @@
-#add-post{
+#add-post {
   width: 450px;
-  }
+}
 
-.user-info{
+.user-info {
   font-size: 0.8em;
-  }
+}
 
-.img-comment{
-  img{
+.img-comment {
+  img {
     width: 25px;
     height: 25px;
-    }
   }
+}
 
-#profile-img-comment{
-  img{
+#profile-img-comment {
+  img {
     width: 30px;
-    }
   }
-.onLoad{
+}
+.onLoad {
   background: #666666;
   border-radius: 5px;
   color: transparent;
-  }
+}
 .dropdown-toggle::after {
   display: none;
-  }
-.show{
+}
+.show {
   display: flex;
-  }
-.clickable:hover{
+}
+.clickable:hover {
   cursor: pointer;
-  }
+}

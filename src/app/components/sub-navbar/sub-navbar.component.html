@@ -1,0 +1,34 @@
+<div class="sub-navbar" [class.visible]="showSubNavBar">
+  <div class="container">
+    <div class="row heigh-row">
+      <div class="col col-12 d-flex mt-2 justify-content-between">
+        <!-- Contenuto della sub nav bar -->
+
+        <div class="d-flex align-items-start">
+          <div>
+            <img id="img-subnav" [src]="data.image" alt="" />
+          </div>
+          <div class="d-flex flex-column">
+            <p class="fw-bold ms-2 m-0">{{ data.name }} {{ data.surname }}</p>
+            <p class="ms-2 m-0">{{ data.title }}</p>
+          </div>
+        </div>
+        <div>
+          <button
+            id="hover-button1"
+            class="btn btn-outline-secondary text-secondary rounded-pill me-2"
+          >
+            Altro
+          </button>
+          <button
+            id="hover-button2"
+            class="fw-bold btn btn-outline-primary text-primary rounded-pill me-2"
+          >
+            Aggiungi sezione del profilo
+          </button>
+          <button class="btn btn-primary rounded-pill">Disponibile per</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

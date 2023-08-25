@@ -7,8 +7,7 @@ import { PostService } from 'src/app/post.service';
 import { ProfileService } from 'src/app/profile.service';
 import { Icommentapi } from '../../models/icommentapi';
 import { FullPost } from '../../models/full-post';
-import {DatePipePipe} from "../../models/date-pipe.pipe";
-
+import { DatePipePipe } from '../../models/date-pipe.pipe';
 
 @Component({
   selector: 'app-home',
@@ -39,8 +38,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private profileSvc: ProfileService,
     private postSvc: PostService,
-    private fb: FormBuilder,
-
+    private fb: FormBuilder
   ) {}
 
   ngOnInit(): void {
@@ -100,6 +98,4 @@ export class HomeComponent implements OnInit {
       .insertNewComment(this.newComment)
       .subscribe((data) => this.getAllComments(elId));
   }
-
-
 }

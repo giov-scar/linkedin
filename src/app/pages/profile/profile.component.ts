@@ -55,6 +55,7 @@ export class ProfileComponent implements OnInit {
       title: this.fb.control(null, [Validators.required]),
       bio: this.fb.control(null, [Validators.required]),
       area: this.fb.control(null, {}),
+      image: this.fb.control(null),
     });
 
     //   form inserimento nuova esperienza

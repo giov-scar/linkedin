@@ -32,6 +32,10 @@
                 <label for="exampleInputCity" class="form-label">City</label>
                 <input type="text" class="form-control" id="exampleInputCity" placeholder="City" formControlName="area">
               </div>
+              <div class="mb-3">
+                <label for="exampleInputImg" class="form-label">Profile image</label>
+                <input type="text" class="form-control" id="exampleInputImg" placeholder="Profile image" formControlName="image">
+              </div>
               <button type="submit" class="btn btn-success" (click)="send()">Submit</button>
             </form>
           </div>
@@ -159,7 +163,7 @@
               </div>
               <p class="mb-0">{{exp.company}} &centerdot; A tempo pieno</p>
               <p class="text-secondary my-0">{{exp.startDate | date : 'MMM YYYY'}}
-                - {{exp.endDate | date : 'MMM YYYY'}} {{exp.startDate|date: 'YYYY'}}</p>
+                - {{exp.endDate | date : 'MMM YYYY'}} </p>
               <p class="text-secondary fs-6">{{exp.area}}</p>
               <div>
                 <input type="checkbox" class="read-more-state" id="post-{{i}}"/>

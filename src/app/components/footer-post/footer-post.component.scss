@@ -43,6 +43,7 @@
   }
 #react-1:hover,#react-2:hover,#react-3:hover,#react-4:hover,#react-5:hover,#react-6:hover{
   animation: moveUp 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  cursor: pointer;
   }
 @keyframes moveUp {
   from{

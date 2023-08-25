@@ -9,7 +9,6 @@ import { Icommentapi } from '../../models/icommentapi';
 import { FullPost } from '../../models/full-post';
 import { DatePipePipe } from '../../models/date-pipe.pipe';
 
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -48,29 +47,24 @@ export class HomeComponent implements OnInit {
     this.formPost = this.fb.group({
       text: this.fb.control(null, [Validators.required]),
     });
-
   }
 
   getMyProfile() {
-    setTimeout(() => {
-      this.profileSvc.getMyProfile().subscribe((data) => {
-        console.log(data);
-        this.data = data;
-        this.loading = false;
-      });
-    }, 2000);
+    this.profileSvc.getMyProfile().subscribe((data) => {
+      console.log(data);
+      this.data = data;
+      this.loading = false;
+    });
   }
 
   getAll() {
-    setTimeout(() => {
-      this.postSvc.getAllPost().subscribe((data: PostApiResp[]) => {
-        console.log(data);
-        data.reverse();
-        this.allPost = data;
-        this.maxPostToDisplay = data.slice(0, 50);
-        this.loading = false;
-      });
-    }, 2000);
+    this.postSvc.getAllPost().subscribe((data: PostApiResp[]) => {
+      console.log(data);
+      data.reverse();
+      this.allPost = data;
+      this.maxPostToDisplay = data.slice(0, 50);
+      this.loading = false;
+    });
   }
 
   createPost() {
@@ -99,5 +93,4 @@ export class HomeComponent implements OnInit {
       .insertNewComment(this.newComment)
       .subscribe((data) => this.getAllComments(elId));
   }
-
 }

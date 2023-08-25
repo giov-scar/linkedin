@@ -8,7 +8,7 @@
           class="img-fluid rounded-top-2 w-100"
         />
         <div id="profile-img">
-          <img *ngIf="data" [src]="data.image" alt="profile-pic" class="" />
+          <img *ngIf="data" [src]="data.image" alt="profile-pic" class=""/>
         </div>
       </div>
 
@@ -17,29 +17,29 @@
           {{ data.name }} {{ data.surname }}
         </h6>
         <p class="text-secondary text-center px-2">{{ data.title }}</p>
-        <hr />
+        <hr/>
         <p class="mb-0 text-secondary px-2 clickable">Collegamenti</p>
         <a routerLink="/my-network" class="text-decoration-none"
-          ><p class="mb-0 text-secondary px-2 clickable">
-            Espandi la tua rete
-          </p></a
+        ><p class="mb-0 text-secondary px-2 clickable">
+          Espandi la tua rete
+        </p></a
         >
         <p class="mb-0 text-secondary px-2">
           <a
             href="https://www.youtube.com/watch?v=kWHAEydIIB4"
             class="text-secondary text-decoration-none"
             target="_blank"
-            >Chi ha visitato il tuo profilo</a
+          >Chi ha visitato il tuo profilo</a
           >
         </p>
-        <hr />
+        <hr/>
         <p class="mb-0 text-secondary px-2">
           Accedi a strumenti e informazioni in esclusiva
         </p>
         <p class="mb-0 px-2 text-decoration-underline clickable">
           Fatti assumere più velocemente prova premium gratis
         </p>
-        <hr />
+        <hr/>
         <i class="bi bi-bookmark-fill text-secondary px-2"></i>
         <span>I miei elementi</span>
       </div>
@@ -56,7 +56,7 @@
             <i class="bi bi-plus text-secondary fs-2 pe-2 clickable"></i>
           </div>
         </div>
-        <hr />
+        <hr/>
         <h6 class="px-2 text-secondary clickable">Scopri di più</h6>
       </div>
     </div>
@@ -167,10 +167,37 @@
             />
             <i class="bi bi-caret-down-fill text-secondary ms-1"></i>
           </div>
-          <div class="d-flex align-items-baseline">
-            <i class="bi bi-hand-thumbs-up text-secondary"></i>
-            <p class="text-secondary ms-1">Consiglia</p>
+          <div class="d-flex align-items-baseline" ngbDropdown placement="top">
+            <div id="dropdownBasic2" ngbDropdownToggle class="clickable">
+              <div class=" d-flex align-items-baseline">
+                <i class="bi bi-hand-thumbs-up text-secondary"></i>
+                <p class="text-secondary ms-1">Consiglia</p>
+              </div>
+            </div>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+              <div class="box-reaction" id="react-1" ngbDropdownItem>
+                <img src="https://static.licdn.com/sc/h/f4ly07ldn7194ciimghrumv3l" alt="reaction">
+              </div>
+              <div class="box-reaction" id="react-2" ngbDropdownItem>
+                <img src="https://static.licdn.com/sc/h/3c4dl0u9dy2zjlon6tf5jxlqo" alt="reaction">
+              </div>
+              <div class="box-reaction" id="react-3" ngbDropdownItem>
+                <img src="https://static.licdn.com/sc/h/9whrgl1hq2kfxjqr9gqwoqrdi" alt="reaction">
+              </div>
+              <div class="box-reaction" id="react-4" ngbDropdownItem>
+                <img src="https://static.licdn.com/sc/h/asmf650x603bcwgefb4heo6bm" alt="reaction">
+              </div>
+              <div class="box-reaction" id="react-5" ngbDropdownItem>
+                <img src="https://static.licdn.com/sc/h/39axkb4qe8q95ieljrhqhkxvl" alt="reaction">
+              </div>
+              <div class="box-reaction" id="react-6" ngbDropdownItem>
+                <img src="https://static.licdn.com/sc/h/ktcgulanbxpl0foz1uckibdl" alt="reaction">
+              </div>
+            </div>
           </div>
+
+
+          <!--   fine reactione-->
           <div class="d-flex align-items-baseline">
             <i class="bi bi-chat-text text-secondary"></i>
             <p class="text-secondary ms-1">Commenta</p>
@@ -290,6 +317,7 @@
         <p class="loading-text fs-4">Recupero Post...</p>
       </div>
     </div>
+
     <div class="col col-3 mt-4">
       <div class="bg-white border rounded-3 py-3">
         <!--inizio colonna destra -->
@@ -387,7 +415,7 @@
           class="d-flex justify-content-center flex-column align-items-center mt-2"
         >
           <small *ngIf="data"
-            >{{ data.name }}, boost your job search with Premium</small
+          >{{ data.name }}, boost your job search with Premium</small
           >
           <div class="d-flex mt-2">
             <div class="logo-box-ad me-2">
@@ -414,7 +442,56 @@
           </button>
         </div>
       </div>
+      <!-- Inizio footer -->
+      <div class="d-flex flex-column align-items-center mt-4 sezioneSticky2">
+        <div class="mb-2">
+          <span class="text-center text-secondary me-3 textFooter"
+            >Informazioni</span
+          >
+          <span class="text-center text-secondary textFooter"
+            >Accessibilità</span
+          >
+        </div>
+        <p class="textFooter mb-2 text-secondary">Centro assistenza</p>
+        <div class="mb-2">
+          <span class="textFooter mb-2 me-2 text-secondary"
+            >Privacy e condizioni</span
+          >
+          <span class="icon-drop"
+            ><i class="bi bi-caret-down-fill text-secondary"></i
+          ></span>
+        </div>
+        <p class="textFooter mb-2 text-secondary">
+          Opzioni per gli annunci pubblicitari
+        </p>
+        <div>
+          <div>
+            <span class="me-4 textFooter text-secondary mb-2">Pubblicità</span>
+
+            <span class="textFooter text-secondary me-2"
+              >Servizi alle aziende</span
+            >
+            <span class="icon-drop"
+              ><i class="bi bi-caret-down-fill text-secondary"></i
+            ></span>
+          </div>
+        </div>
+        <div class="mb-4">
+          <span class="textFooter text-secondary me-3"
+            >Scarica l'app LinkedIn</span
+          >
+          <span class="textFooter text-secondary">Altro</span>
+        </div>
+        <div class="mb-4">
+          <img
+            class="imgFooter"
+            src="https://loghi-famosi.com/wp-content/uploads/2020/04/Linkedin-Logo.png"
+            alt="logo footer"
+          />
+          <span class="ms-1">LinkedIn Corporation &copy; 2023 </span>
+        </div>
+      </div>
+      <!-- Fine footer -->
     </div>
   </div>
 </div>
-<app-main-footer></app-main-footer>

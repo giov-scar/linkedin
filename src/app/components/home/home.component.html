@@ -19,7 +19,11 @@
         <p class="text-secondary text-center px-2">{{ data.title }}</p>
         <hr />
         <p class="mb-0 text-secondary px-2 clickable">Collegamenti</p>
-        <p class="mb-0 text-secondary px-2 clickable">Espandi la tua rete</p>
+        <a routerLink="/my-network" class="text-decoration-none"
+          ><p class="mb-0 text-secondary px-2 clickable">
+            Espandi la tua rete
+          </p></a
+        >
         <p class="mb-0 text-secondary px-2">
           <a
             href="https://www.youtube.com/watch?v=kWHAEydIIB4"
@@ -231,7 +235,26 @@
             </div>
           </div>
           <div class="d-flex mt-2">
-            <i class="bi bi-three-dots text-secondary me-2"></i>
+            <div ngbDropdown class="d-inline-block m-0">
+              <button
+                type="button"
+                class="border-0 p-0 bg-white text-white"
+                id="dropdown1"
+                ngbDropdownToggle
+              >
+                <i class="bi bi-three-dots text-secondary m-0"></i>
+              </button>
+              <div
+                ngbDropdownMenu
+                aria-labelledby="dropdown1"
+                class="border-0 drop"
+              >
+                <!-- items as buttons -->
+                <button ngbDropdownItem class="text-secondary">
+                  nascondi post
+                </button>
+              </div>
+            </div>
             <i
               class="bi bi-x-lg text-secondary"
               *ngIf="post.user._id === data._id"

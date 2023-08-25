@@ -30,6 +30,7 @@ export class HomeComponent implements OnInit {
   };
 
   toSeeComments: string = 'tt0399295';
+  loading: boolean = true;
 
   constructor(
     private profileSvc: ProfileService,
@@ -52,20 +53,25 @@ export class HomeComponent implements OnInit {
   }
 
   getMyProfile() {
-    this.profileSvc.getMyProfile().subscribe((data) => {
-      console.log(data);
-      this.data = data;
-    });
+    setTimeout(() => {
+      this.profileSvc.getMyProfile().subscribe((data) => {
+        console.log(data);
+        this.data = data;
+        this.loading = false;
+      });
+    }, 2000);
   }
 
   getAll() {
-    this.postSvc.getAllPost().subscribe((data: PostApiResp[]) => {
-      console.log(data);
-      data.reverse();
-      this.allPost = data;
-      this.maxPostToDisplay = data.slice(0, 50);
-      this.getAllComments();
-    });
+    setTimeout(() => {
+      this.postSvc.getAllPost().subscribe((data: PostApiResp[]) => {
+        console.log(data);
+        data.reverse();
+        this.allPost = data;
+        this.maxPostToDisplay = data.slice(0, 50);
+        this.loading = false;
+      });
+    }, 2000);
   }
 
   createPost() {

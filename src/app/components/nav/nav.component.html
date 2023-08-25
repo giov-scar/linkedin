@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid nav-bar">
   <div class="row align-items-center justify-content-center">
     <div class="col-1 me-1 me-lg-0" [ngClass]="class">
       <form class="d-flex" role="search">
@@ -24,29 +24,33 @@
       <div
         class="d-flex justify-content-center align-items-center flex-column section"
         routerLink="/home"
+        routerLinkActive="border-black border-bottom border-2"
       >
-        <i class="bi bi-house-door-fill menu"></i>
+        <i class="bi bi-house-door-fill menu" routerLinkActive="text-dark"></i>
         <p class="m-0">Home</p>
       </div>
       <div
         class="d-flex justify-content-center align-items-center flex-column section"
         routerLink="/my-network"
+        routerLinkActive="border-black border-bottom border-2"
       >
-        <i class="bi bi-people-fill menu"></i>
+        <i class="bi bi-people-fill menu" routerLinkActive="text-dark"></i>
         <p class="m-0">My Network</p>
       </div>
       <div
         class="d-flex justify-content-center align-items-center flex-column section"
         routerLink="/jobs"
+        routerLinkActive="border-black border-bottom border-2"
       >
-        <i class="bi bi-briefcase-fill menu"></i>
+        <i class="bi bi-briefcase-fill menu" routerLinkActive="text-dark"></i>
         <p class="m-0">Jobs</p>
       </div>
       <div
         class="d-flex justify-content-center align-items-center flex-column section"
         routerLink="/notifications"
+        routerLinkActive="border-black border-bottom border-2"
       >
-        <i class="bi bi-chat-dots-fill menu"></i>
+        <i class="bi bi-chat-dots-fill menu" routerLinkActive="text-dark"></i>
         <p class="m-0">Notifications</p>
       </div>
       <div

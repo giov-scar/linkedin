@@ -1,9 +1,11 @@
 <div class="container-fluid nav-bar border-bottom">
   <div class="row align-items-center justify-content-center">
     <div class="col-1 me-1 me-lg-0" [ngClass]="class">
-      <form class="d-flex" role="search">
-        <img src="../../../assets/img/icons8-linkedin-48.png" alt="logo" />
+      <form class="d-flex" role="search" (submit)="searchProfile()">
+        <img routerLink="/home" class="clickable" src="../../../assets/img/icons8-linkedin-48.png" alt="logo" />
         <input
+          [(ngModel)]="toSearch"
+          [ngModelOptions]="{standalone: true}"
           #search
           (focus)="changeStat()"
           (focusout)="changeStat()"
@@ -60,7 +62,6 @@
         class="img-cont d-flex justify-content-end align-items-center flex-column section gap-2"
       >
         <img
-
           id="profile-pic"
           [src]="data.image"
           alt="profilepic"
@@ -117,5 +118,3 @@
     </div>
   </div>
 </div>
-
-<app-sub-navbar></app-sub-navbar>

@@ -11,6 +11,9 @@ export class NavComponent implements AfterViewInit {
   data!: IApiResp;
   isActive: Boolean = false;
   class: string = 'col-lg-3';
+  toSearch:string = ''
+  allUsers!: IApiResp[];
+  idToSearch!:string
 
   constructor(private profileSvc: ProfileService) {
     this.getMyProfile();
@@ -24,6 +27,9 @@ export class NavComponent implements AfterViewInit {
       this.data = data;
     });
   }
+  getAllProfile(){
+    this.profileSvc.getAllProfile().subscribe(data=> this.allUsers = data)
+  }
 
   changeStat() {
     this.isActive = !this.isActive;
@@ -32,5 +38,8 @@ export class NavComponent implements AfterViewInit {
     } else {
       this.class = 'col-lg-3';
     }
+  }
+  searchProfile(){
+    this.getAllProfile()
   }
 }

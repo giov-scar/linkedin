@@ -31,4 +31,5 @@ export class ProfileService {
   modifyProfile(data: Partial<IApiResp>) {
     return this.http.put(`${environment.BASE_URL}`, data);
   }
+
 }

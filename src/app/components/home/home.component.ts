@@ -46,15 +46,10 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.getMyProfile();
     this.getAll();
-    // this.getAllComments();
     this.formPost = this.fb.group({
       text: this.fb.control(null, [Validators.required]),
     });
-    // this.formComment = this.fb.group(
-    //   {
-    //     comment:this.fb.control(null)
-    //   }
-    // )
+
   }
 
   getMyProfile() {
@@ -92,7 +87,6 @@ export class HomeComponent implements OnInit {
 
   getAllComments(elId: string) {
     this.postSvc.getAllComments(elId).subscribe((data: Icommentapi[]): void => {
-      console.log(data, 'commenti');
       data.reverse();
       this.allComments = data;
       this.maxCommentToDisplay = data.slice(0, 50).reverse();

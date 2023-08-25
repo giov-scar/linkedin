@@ -1,6 +1,11 @@
 .container-fluid {
   background-color: white;
 }
+.nav-bar {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 10000;
+}
 
 .menu {
   font-size: 30px;

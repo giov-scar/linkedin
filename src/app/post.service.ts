@@ -1,26 +1,29 @@
-import { Injectable } from '@angular/core';
-import { PostApiResp } from './models/post-api-resp';
+import {Injectable} from '@angular/core';
+import {PostApiResp} from './models/post-api-resp';
 import {
   HttpClient,
   HttpEvent,
   HttpHandler,
   HttpInterceptor,
 } from '@angular/common/http';
-import { HttpRequest } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Router } from '@angular/router';
-import { environment } from '../environments/environment';
-import { ExpApiResp } from './models/exp-api-resp';
-import { Icommentapi } from './models/icommentapi';
+import {HttpRequest} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {Router} from '@angular/router';
+import {environment} from '../environments/environment';
+import {ExpApiResp} from './models/exp-api-resp';
+import {Icommentapi} from './models/icommentapi';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PostService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
+
   getAllPost(): Observable<PostApiResp[]> {
     return this.http.get<PostApiResp[]>(environment.POST_URL);
   }
+
   insertNewPost(data: Partial<PostApiResp>) {
     return this.http.post(environment.POST_URL, data);
   }
@@ -36,9 +39,9 @@ export class PostService {
     });
   }
 
-  getAllComments(elId:string):Observable<Icommentapi[]>{
-    return this.http.get<Icommentapi[]>(environment.COMMENT_URL + elId , {
-      headers:{
+  getAllComments(elId: string): Observable<Icommentapi[]> {
+    return this.http.get<Icommentapi[]>(environment.COMMENT_URL + elId, {
+      headers: {
         authorization: environment.COMMENT_KEY
       }
     })
@@ -46,13 +49,18 @@ export class PostService {
 
   insertNewComment(data: Partial<Icommentapi>) {
     return this.http.post(environment.COMMENT_URL, data, {
-      headers:{
+      headers: {
         authorization: environment.COMMENT_KEY
       }
     });
   }
-  postComment(id: string, contenuto: Icommentapi) {
-    return this.http.post(environment.COMMENT_URL, contenuto, {
-      headers: { Authorization: environment.COMMENT_KEY},
+
+  deleteComment(elementId: string) {
+    return this.http.delete(environment.COMMENT_URL + elementId, {
+      headers: {
+        authorization: environment.COMMENT_KEY
+      },
+      responseType: 'text',
     });
-}}
+  }
+}

@@ -1,0 +1,52 @@
+<div class="d-flex px-4 justify-content-between">
+  <div class="img-comment d-flex clickable">
+    <img *ngIf="data" [src]="data.image" alt="profile-pic" class="rounded-circle">
+    <i class="bi bi-caret-down-fill text-secondary ms-1" (click)="getAllComments()"></i>
+  </div>
+  <div class="d-flex align-items-baseline" ngbDropdown placement="top" class="d-flex align-items-baseline">
+    <div id="dropdownBasic2" ngbDropdownToggle class="clickable">
+      <div class=" d-flex align-items-baseline">
+        <i class="bi bi-hand-thumbs-up text-secondary"></i>
+        <p class="text-secondary ms-1">Consiglia</p>
+      </div>
+    </div>
+    <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+      <button ngbDropdownItem>Action - 1</button>
+      <button ngbDropdownItem>Another Action</button>
+      <button ngbDropdownItem>Something else is here</button>
+    </div>
+  </div>
+  <div class=" d-flex align-items-baseline clickable">
+
+    <i class="bi bi-chat-text text-secondary"></i>
+    <p class="text-secondary ms-1">Commenta</p>
+  </div>
+  <div class=" d-flex align-items-baseline clickable">
+    <i class="bi bi-arrow-left-right text-secondary"></i>
+    <p class="text-secondary ms-1">Diffondi il post</p>
+  </div>
+  <div class=" d-flex align-items-baseline clickable">
+    <i class="bi bi-send text-secondary"></i>
+    <p class="text-secondary ms-1">Invia</p>
+  </div>
+</div>
+<div class="d-flex align-items-center mt-2 mx-auto p-3">
+  <!--  <div id="profile-img-comment">-->
+  <!--    <img *ngIf="data" [src]="data.image" alt="" class="rounded-circle">-->
+  <!--  </div>-->
+  <div>
+    <form (submit)="insertComment()">
+      <input [(ngModel)]="commentString" [ngModelOptions]="{standalone: true}" type="text" id="add-post"
+             placeholder=" Aggiungi un commento..."
+             class="rounded-pill border border-1 py-1 ms-2 border border-2">
+    </form>
+    <div *ngIf="allComments" class="d-flex flex-column">
+      <div *ngFor="let comment of allComments" class="d-flex justify-content-between px-5">
+        <p>
+          {{comment.comment}}
+        </p>
+        <i class="bi bi-x-lg text-secondary" *ngIf="userPostId === data._id" (click)="deleteComment(comment._id)"></i>
+      </div>
+    </div>
+  </div>
+</div>

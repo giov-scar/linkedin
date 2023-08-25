@@ -144,7 +144,7 @@
                 <h6 class="mb-0 clickable">{{post.user.name}} {{post.user.surname}} <span class="text-secondary">&centerdot; 1&deg;</span>
                 </h6>
                 <p class="text-secondary p-0 m-0 user-info">{{post.user.title}}</p>
-                <p class="text-secondary p-0 m-0 user-info">21 minuti <span>&centerdot; <i
+                <p class="text-secondary p-0 m-0 user-info">{{post.createdAt | datePipe : 'HH:ss'}} <span>&centerdot; <i
                   class="bi bi-globe-americas"></i></span></p>
               </div>
             </div>
@@ -159,7 +159,9 @@
         </div>
         <!--          component qui-->
         <app-footer-post [elId]="post._id"
-                         [userPostId]="post.user._id" >
+                         [userPostId]="post.user._id"
+                         [data] ="data"
+        >
 
         </app-footer-post>
 
@@ -179,7 +181,7 @@
         />
         <p class="loading-text fs-4">Recupero Post...</p>
       </div>
-      
+
     </div>
     <div class="col col-3  mt-4 ">
       <div class="bg-white border rounded-3 py-3">
@@ -246,7 +248,7 @@
           <i class="bi bi-three-dots clickable"></i>
         </div>
         <div class="d-flex justify-content-center flex-column align-items-center mt-2">
-          <small *ngIf="data">{{data.name}}, boost your jon search with Premium</small>
+          <small *ngIf="data">{{data.name}}, boost your job search with Premium</small>
           <div class="d-flex mt-2">
             <div class="logo-box-ad me-2 ">
               <img *ngIf="data" [src]="data.image" alt="profile pic" class="profile-pic rounded-circle">
@@ -263,3 +265,6 @@
   </div>
 
 </div>
+
+
+

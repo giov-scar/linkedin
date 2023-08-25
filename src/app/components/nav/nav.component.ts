@@ -13,6 +13,7 @@ export class NavComponent implements AfterViewInit {
   class: string = 'col-lg-3';
   toSearch:string = ''
   allUsers!: IApiResp[];
+  idToSearch!:string
 
   constructor(private profileSvc: ProfileService) {
     this.getMyProfile();
@@ -40,7 +41,5 @@ export class NavComponent implements AfterViewInit {
   }
   searchProfile(){
     this.getAllProfile()
-    
-
   }
 }

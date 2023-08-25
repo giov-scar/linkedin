@@ -9,6 +9,8 @@ import {IApiResp} from "../../models/iapi-resp";
   styleUrls: ['./footer-post.component.scss']
 })
 export class FooterPostComponent {
+  isOpen:boolean = false
+  class:string = 'd-none'
   allComments!: Icommentapi[];
   maxCommentToDisplay!: Icommentapi[];
   commentString!: string
@@ -54,6 +56,15 @@ export class FooterPostComponent {
       this.getAllComments()
 
      })
+  }
+
+  showHideComment(){
+    this.isOpen = !this.isOpen;
+    if(this.isOpen === false){
+      this.class = 'd-flex'
+    }if(this.isOpen === true){
+      this.class = 'd-none'
+    }
   }
 
 }

@@ -1,3 +1,4 @@
+import { MainFooterComponent } from './components/main-footer/main-footer.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -29,6 +30,7 @@ import { SubNavbarComponent } from './components/sub-navbar/sub-navbar.component
     UserProfileComponent,
     FooterPostComponent,
     SubNavbarComponent,
+    MainFooterComponent
   ],
   imports: [
     BrowserModule,

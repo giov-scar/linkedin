@@ -16,7 +16,7 @@
         />
       </form>
     </div>
-    <div class="col-6 d-flex gap-5">
+    <div class="col-5 d-flex gap-5 justify-content-end">
       <div
         class="d-flex d-lg-none justify-content-center align-items-start flex-column section"
       >
@@ -56,6 +56,8 @@
         <p class="m-0">Notifications</p>
       </div>
 
+
+
       <div
         *ngIf="data"
         ngbDropdown
@@ -68,6 +70,8 @@
           ngbDropdownToggle
           style="width: 30px; height: 30px;"
         />
+
+
 
         <p class="m-0" id="dropdownBasic1" ngbDropdownToggle>Me</p>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
@@ -114,7 +118,18 @@
           <button ngbDropdownItem>Esci</button>
         </div>
       </div>
-      <div class="col text-end"></div>
+
+    </div>
+    <div class="col col-2 d-flex align-items-center">
+      <div
+        class="d-flex justify-content-center align-items-center flex-column section border-start  ps-3"
+        routerLink="/notifications"
+        routerLinkActive="border-black border-bottom border-2"
+      >
+        <i class="bi bi-grid-3x3-gap-fill menu"></i>
+        <p class="m-0">Per le aziende <span><i class="bi bi-caret-down-fill text-secondary"></i></span></p>
+      </div>
+
     </div>
   </div>
 </div>

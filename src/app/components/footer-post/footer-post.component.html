@@ -1,7 +1,7 @@
 <div class="d-flex px-4 justify-content-between">
   <div class="img-comment d-flex clickable">
     <img *ngIf="data" [src]="data.image" alt="profile-pic" class="rounded-circle">
-    <i class="bi bi-caret-down-fill text-secondary ms-1" (click)="getAllComments()"></i>
+    <i class="bi bi-caret-down-fill text-secondary ms-1"></i>
   </div>
   <div class="d-flex align-items-baseline" ngbDropdown placement="top" class="d-flex align-items-baseline">
     <div id="dropdownBasic2" ngbDropdownToggle class="clickable">
@@ -19,18 +19,20 @@
   <div class=" d-flex align-items-baseline clickable">
 
     <i class="bi bi-chat-text text-secondary"></i>
-    <p class="text-secondary ms-1">Commenta</p>
+    <p class="text-secondary ms-1" (click)="showHideComment();getAllComments()">Commenta</p>
   </div>
-  <div class=" d-flex align-items-baseline clickable">
+  <div class="d-flex align-items-baseline clickable">
     <i class="bi bi-arrow-left-right text-secondary"></i>
     <p class="text-secondary ms-1">Diffondi il post</p>
   </div>
-  <div class=" d-flex align-items-baseline clickable">
+  <div class="d-flex align-items-baseline clickable">
     <i class="bi bi-send text-secondary"></i>
     <p class="text-secondary ms-1">Invia</p>
   </div>
 </div>
-<div class="d-flex align-items-center mt-2 mx-auto p-3">
+<!--  upper end-->
+
+<div class="d-flex align-items-center mt-2 mx-auto p-3" [ngClass]="class">
   <!--  <div id="profile-img-comment">-->
   <!--    <img *ngIf="data" [src]="data.image" alt="" class="rounded-circle">-->
   <!--  </div>-->

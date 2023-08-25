@@ -98,4 +98,5 @@ export class HomeComponent implements OnInit {
       .insertNewComment(this.newComment)
       .subscribe((data) => this.getAllComments(elId));
   }
+
 }

@@ -2,7 +2,7 @@
   <div class="row align-items-center justify-content-center">
     <div class="col-1 me-1 me-lg-0" [ngClass]="class">
       <form class="d-flex" role="search" (submit)="searchProfile()">
-        <img src="../../../assets/img/icons8-linkedin-48.png" alt="logo" />
+        <img routerLink="/home" class="clickable" src="../../../assets/img/icons8-linkedin-48.png" alt="logo" />
         <input
           [(ngModel)]="toSearch"
           [ngModelOptions]="{standalone: true}"

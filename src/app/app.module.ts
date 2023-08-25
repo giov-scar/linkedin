@@ -15,6 +15,7 @@ import { NotificationsComponent } from './components/notifications/notifications
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { FooterPostComponent } from './components/footer-post/footer-post.component';
+import { SubNavbarComponent } from './components/sub-navbar/sub-navbar.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { FooterPostComponent } from './components/footer-post/footer-post.compon
     NotificationsComponent,
     UserProfileComponent,
     FooterPostComponent,
+    SubNavbarComponent,
   ],
     imports: [
         BrowserModule,

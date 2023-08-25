@@ -1,0 +1,40 @@
+ul {
+  list-style: none;
+  padding: 0px;
+}
+
+a{
+  font-size: 13px;
+  font-weight: 600;
+}
+
+ul li a {
+  text-decoration: none;
+  color: rgb(116, 116, 116)
+}
+
+p {
+  font-size: 10px;
+}
+
+ul li a:hover{
+  color: blue;
+  text-decoration: underline;
+
+}
+
+.text :hover{
+text-decoration: underline;
+}
+
+#btn-prv{
+  font-size: 13px;
+  font-weight: 600;
+  color: rgb(116, 116, 116)
+
+}
+
+#btn-prv:hover{
+  color: blue;
+
+}

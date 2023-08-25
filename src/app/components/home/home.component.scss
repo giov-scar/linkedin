@@ -105,8 +105,12 @@
   animation: pulse 1.5s infinite;
 }
 
-.drop{
+.drop {
   font-size: 0.7rem;
   background: none;
-  transform: translate3d(-50px, 26.4px, 0px)!important
+  transform: translate3d(-50px, 26.4px, 0px) !important;
+}
+.sezioneSticky {
+  position: sticky;
+  top: 90px;
 }

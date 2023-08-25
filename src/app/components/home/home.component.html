@@ -228,7 +228,7 @@
                   {{ post.user.title }}
                 </p>
                 <p class="text-secondary p-0 m-0 user-info">
-                  {{ post.createdAt | datePipe : "HH:ss - MMM-YY" }}
+                  {{ post.createdAt | date : "HH:ss - MMM-YY" }}
                   <span>&centerdot; <i class="bi bi-globe-americas"></i></span>
                 </p>
               </div>

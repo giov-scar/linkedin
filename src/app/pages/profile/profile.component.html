@@ -62,6 +62,21 @@
               <button type="submit" class="btn btn-success" (click)="send()">
                 Submit
               </button>
+              <div class="mb-3">
+                <label for="exampleInputImg" class="form-label"
+                  >Profile image</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="exampleInputImg"
+                  placeholder="Profile image"
+                  formControlName="image"
+                />
+              </div>
+              <button type="submit" class="btn btn-success" (click)="send()">
+                Submit
+              </button>
             </form>
           </div>
           <div class="modal-footer">
@@ -225,6 +240,12 @@
               <p class="text-secondary my-0">
                 {{ exp.startDate.slice(0, 10) }} -
                 {{ exp.endDate.slice(0, 10) }}
+              </p>
+              <p class="text-secondary fs-6">{{ exp.area }}</p>
+              <p class="mb-0">{{ exp.company }} &centerdot; A tempo pieno</p>
+              <p class="text-secondary my-0">
+                {{ exp.startDate | date : "MMM YYYY" }} -
+                {{ exp.endDate | date : "MMM YYYY" }}
               </p>
               <p class="text-secondary fs-6">{{ exp.area }}</p>
               <div>
@@ -444,6 +465,12 @@
         <button type="submit" class="btn btn-danger" (click)="deleteExp()">
           Delete
         </button>
+        <button type="submit" class="btn btn-success" (click)="modifyExp()">
+          Edit
+        </button>
+        <button type="submit" class="btn btn-danger" (click)="deleteExp()">
+          Delete
+        </button>
       </form>
     </div>
     <div class="modal-footer">
@@ -456,6 +483,8 @@
       </button>
     </div>
   </ng-template>
+
+  <!--  Fine modifica esperienza modale-->
 
   <!--  Fine modifica esperienza modale-->
 </div>

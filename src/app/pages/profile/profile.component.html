@@ -158,7 +158,8 @@
                 <i class="bi bi-pencil text-secondary bg-white pe-4 pt-1" (click)="open(mymodal3);saveId(exp._id)"></i>
               </div>
               <p class="mb-0">{{exp.company}} &centerdot; A tempo pieno</p>
-              <p class="text-secondary my-0">{{exp.startDate.slice(0, 10)}} - {{exp.endDate.slice(0, 10)}}</p>
+              <p class="text-secondary my-0">{{exp.startDate | date : 'MMM YYYY'}}
+                - {{exp.endDate | date : 'MMM YYYY'}} {{exp.startDate|date: 'YYYY'}}</p>
               <p class="text-secondary fs-6">{{exp.area}}</p>
               <div>
                 <input type="checkbox" class="read-more-state" id="post-{{i}}"/>
@@ -238,7 +239,7 @@
 
   <!--Fine modale aggiungi esperienza-->
 
-<!--  Inizio modifica esperienza modale-->
+  <!--  Inizio modifica esperienza modale-->
 
   <ng-template #mymodal3 let-modal3>
     <div class="modal-header">
@@ -275,7 +276,7 @@
           <label for="Area" class="form-label">Area</label>
           <input type="text" class="form-control" id="AreaMod" placeholder="Area" formControlName="area2">
         </div>
-        <button type="submit" class="btn btn-success" (click)="modifyExp()" >Edit</button>
+        <button type="submit" class="btn btn-success" (click)="modifyExp()">Edit</button>
         <button type="submit" class="btn btn-danger" (click)="deleteExp()">Delete</button>
       </form>
     </div>
@@ -285,7 +286,7 @@
   </ng-template>
 
 
-<!--  Fine modifica esperienza modale-->
+  <!--  Fine modifica esperienza modale-->
 
 
 </div>

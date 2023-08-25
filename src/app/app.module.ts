@@ -16,6 +16,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { FooterPostComponent } from './components/footer-post/footer-post.component';
 import { DatePipePipe } from './models/date-pipe.pipe';
+import { MainFooterComponent } from './components/main-footer/main-footer.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { DatePipePipe } from './models/date-pipe.pipe';
     UserProfileComponent,
     FooterPostComponent,
     DatePipePipe,
+    MainFooterComponent,
   ],
     imports: [
         BrowserModule,

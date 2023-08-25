@@ -13,10 +13,9 @@ import { MyNetworkComponent } from './components/my-network/my-network.component
 import { JobsComponent } from './components/jobs/jobs.component';
 import { NotificationsComponent } from './components/notifications/notifications.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterPostComponent } from './components/footer-post/footer-post.component';
-import { DatePipePipe } from './models/date-pipe.pipe';
-import { MainFooterComponent } from './components/main-footer/main-footer.component';
+import { SubNavbarComponent } from './components/sub-navbar/sub-navbar.component';
 
 @NgModule({
   declarations: [
@@ -29,17 +28,16 @@ import { MainFooterComponent } from './components/main-footer/main-footer.compon
     NotificationsComponent,
     UserProfileComponent,
     FooterPostComponent,
-    DatePipePipe,
-    MainFooterComponent,
+    SubNavbarComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        NgbModule,
-        HttpClientModule,
-        ReactiveFormsModule,
-        FormsModule,
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NgbModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
+  ],
   providers: [
     [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   ],

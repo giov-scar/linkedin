@@ -1,4 +1,4 @@
-<div class="container-fluid nav-bar">
+<div class="container-fluid nav-bar border-bottom">
   <div class="row align-items-center justify-content-center">
     <div class="col-1 me-1 me-lg-0" [ngClass]="class">
       <form class="d-flex" role="search">
@@ -53,12 +53,13 @@
         <i class="bi bi-chat-dots-fill menu" routerLinkActive="text-dark"></i>
         <p class="m-0">Notifications</p>
       </div>
+
       <div
+        *ngIf="data"
         ngbDropdown
         class="img-cont d-flex justify-content-end align-items-center flex-column section gap-2"
       >
         <img
-          *ngIf="data"
           id="profile-pic"
           [src]="data.image"
           alt="profilepic"
@@ -111,9 +112,7 @@
           <button ngbDropdownItem>Esci</button>
         </div>
       </div>
-      <div class="col text-end">
-
-    </div>
+      <div class="col text-end"></div>
     </div>
   </div>
 </div>

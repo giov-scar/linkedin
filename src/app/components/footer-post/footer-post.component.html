@@ -3,7 +3,7 @@
     <img *ngIf="data" [src]="data.image" alt="profile-pic" class="rounded-circle">
     <i class="bi bi-caret-down-fill text-secondary ms-1"></i>
   </div>
-  <div class="d-flex align-items-baseline" ngbDropdown placement="top" class="d-flex align-items-baseline">
+  <div class="d-flex align-items-baseline" ngbDropdown placement="top">
     <div id="dropdownBasic2" ngbDropdownToggle class="clickable">
       <div class=" d-flex align-items-baseline">
         <i class="bi bi-hand-thumbs-up text-secondary"></i>
@@ -11,9 +11,24 @@
       </div>
     </div>
     <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
-      <button ngbDropdownItem>Action - 1</button>
-      <button ngbDropdownItem>Another Action</button>
-      <button ngbDropdownItem>Something else is here</button>
+      <div class="box-reaction" id="react-1" ngbDropdownItem>
+        <img src="https://static.licdn.com/sc/h/f4ly07ldn7194ciimghrumv3l" alt="reaction">
+      </div>
+      <div class="box-reaction" id="react-2" ngbDropdownItem>
+        <img src="https://static.licdn.com/sc/h/3c4dl0u9dy2zjlon6tf5jxlqo" alt="reaction">
+      </div>
+      <div class="box-reaction" id="react-3" ngbDropdownItem>
+        <img src="https://static.licdn.com/sc/h/9whrgl1hq2kfxjqr9gqwoqrdi" alt="reaction">
+      </div>
+      <div class="box-reaction" id="react-4" ngbDropdownItem>
+        <img src="https://static.licdn.com/sc/h/asmf650x603bcwgefb4heo6bm" alt="reaction">
+      </div>
+      <div class="box-reaction" id="react-5" ngbDropdownItem>
+        <img src="https://static.licdn.com/sc/h/39axkb4qe8q95ieljrhqhkxvl" alt="reaction">
+      </div>
+      <div class="box-reaction" id="react-6" ngbDropdownItem>
+        <img src="https://static.licdn.com/sc/h/ktcgulanbxpl0foz1uckibdl" alt="reaction">
+      </div>
     </div>
   </div>
   <div class=" d-flex align-items-baseline clickable">

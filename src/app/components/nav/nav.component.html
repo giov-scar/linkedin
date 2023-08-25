@@ -54,11 +54,12 @@
         <p class="m-0">Notifications</p>
       </div>
       <div
+        *ngIf="data"
         ngbDropdown
         class="img-cont d-flex justify-content-end align-items-center flex-column section gap-2"
       >
         <img
-          *ngIf="data"
+
           id="profile-pic"
           [src]="data.image"
           alt="profilepic"

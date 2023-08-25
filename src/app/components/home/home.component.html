@@ -159,7 +159,9 @@
         </div>
         <!--          component qui-->
         <app-footer-post [elId]="post._id"
-                         [userPostId]="post.user._id" >
+                         [userPostId]="post.user._id"
+                         [data] ="data"
+        >
 
         </app-footer-post>
 
@@ -179,7 +181,7 @@
         />
         <p class="loading-text fs-4">Recupero Post...</p>
       </div>
-      
+
     </div>
     <div class="col col-3  mt-4 ">
       <div class="bg-white border rounded-3 py-3">

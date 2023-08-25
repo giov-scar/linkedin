@@ -1,7 +1,5 @@
 import {Component, OnInit, Input} from '@angular/core';
-import {ProfileService} from "../../profile.service";
 import {PostService} from "../../post.service";
-import {FormBuilder, FormGroup} from "@angular/forms";
 import {Icommentapi} from "../../models/icommentapi";
 import {IApiResp} from "../../models/iapi-resp";
 
@@ -13,7 +11,6 @@ import {IApiResp} from "../../models/iapi-resp";
 export class FooterPostComponent {
   allComments!: Icommentapi[];
   maxCommentToDisplay!: Icommentapi[];
-  data!: IApiResp;
   commentString!: string
   newComment: Partial<Icommentapi> = {
     comment: '',
@@ -22,15 +19,15 @@ export class FooterPostComponent {
   }
   @Input() elId!: string
   @Input() userPostId!: string
+  @Input() data!: IApiResp
 
   constructor(
-    private profileSvc: ProfileService,
     private postSvc: PostService,
   ) {
-  }
 
+  }
   getAllComments() {
-    this.getMyProfile()
+
     this.postSvc.getAllComments(this.elId).subscribe((data: Icommentapi[]): void => {
       data.reverse()
       console.log(data, 'commenti')
@@ -39,14 +36,6 @@ export class FooterPostComponent {
 
     })
   }
-
-  getMyProfile() {
-    this.profileSvc.getMyProfile().subscribe((data) => {
-      this.data = data;
-      console.log(data, 'profilo fetch')
-    });
-  }
-
   insertComment() {
     this.newComment.comment = this.commentString
     this.newComment.elementId = this.elId
@@ -58,10 +47,12 @@ export class FooterPostComponent {
     )
   }
   deleteComment(commentId:string){
-    this.postSvc.deleteComment(commentId).subscribe(data=>{
+     this.postSvc.deleteComment(commentId).subscribe(data=>{
       console.log('eliminato')
+      console.log(commentId, this.userPostId, this.data._id)
       this.getAllComments()
-    })
+
+     })
   }
 
 }

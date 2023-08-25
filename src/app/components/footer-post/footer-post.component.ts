@@ -21,6 +21,7 @@ export class FooterPostComponent {
   @Input() userPostId!: string
   @Input() data!: IApiResp
 
+
   constructor(
     private postSvc: PostService,
   ) {

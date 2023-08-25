@@ -1,1 +1,20 @@
+<div class="row row-cols-5">
+  <div class="col" *ngFor="let user of allUsers">
+    <section class="container" id="card">
+      <article class="main rounded-4 bg-white">
+        <div class="top rounded-top-4"></div>
+        <div class="pic" id="profile_pic">
+          <img src="{{ user.image }}" alt="" />
+        </div>
+        <div class="bottom bg-white">
+          <h3>{{ user.name }} {{ user.surname }}</h3>
+          <p>Front-end Developer, Web Content Specialist</p>
+          <div>
+            <button type="button" class="btn btn-primary">Collegati</button>
+          </div>
+        </div>
+      </article>
+    </section>
+  </div>
+</div>
 <app-main-footer></app-main-footer>

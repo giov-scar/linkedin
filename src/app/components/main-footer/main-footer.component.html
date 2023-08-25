@@ -1,62 +1,30 @@
 <div class="container-fluid">
-    <div class="row mt-3 ms-5">
-      <div id="text" class="col-2 offset-1">
+    <div class="row mt-3 mx-auto">
+      <div class="text" class="col-2 offset-1">
         <ul>
           <li><a href="#">Informazioni</a></li>
           <li><a href="#">Linee guida della community</a></li>
-          <!-- ------ -->
-          <div class="dropup-center dropup p-0">
-            <button
-              id="btn-prv"
-              class="btn dropdown-toggle p-0"
-              type="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Privacy e condizioni
-            </button>
-            <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item" href="#">Informativa sulla privacy</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">Contratto di licenza</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#"
-                  >Termine e condizioni delle pagine</a
-                >
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">Informativa sui cookie</a>
-              </li>
-              <li>
-                <a class="dropdown-item" href="#">Informativa sul copyright</a>
-              </li>
-            </ul>
-          </div>
-
-          <!-- grdgdg -->
-
-          <!-- <li><a href="#">Privacy e condizioni</a></li> -->
+          <li><a href="#">Privacy e condizioni <span><i class="bi bi-caret-down-fill"></i></span></a></li>
           <li><a href="#">Sales Solutions</a></li>
           <li><a href="#">Centro sicurezza</a></li>
         </ul>
       </div>
-      <div id="text" class="col-lg-2">
+
+
+      <div class="text" class="col-lg-2">
         <ul>
           <li><a href="#">Accessibilità</a></li>
           <li><a href="#">Carriera</a></li>
           <li>
-            <a href="#"
-              >Opzioni per gli annunci <br />
-              pubblicitari</a
+            <a href="#">Opzioni per gli annunci <br />pubblicitari</a
             >
           </li>
           <li><a href="#">Mobile</a></li>
         </ul>
       </div>
-      <div id="text" class="col-lg-2">
+
+
+      <div class="text" class="col-lg-2">
         <ul>
           <li><a href="#">Talent Solutions</a></li>
           <li><a href="#">Soluzioni di marketing</a></li>
@@ -64,7 +32,7 @@
           <li><a href="#">Piccole imprese</a></li>
         </ul>
       </div>
-      <div id="text" class="col-lg-3">
+      <div class="text" class="col-lg-3">
         <ul>
           <div class="d-flex">
             <svg
@@ -84,7 +52,6 @@
               <p>Visita il nostro Centro assistenza.</p>
             </li>
           </div>
-          <!-- ---- -->
 
           <div class="d-flex">
             <svg
@@ -106,7 +73,8 @@
               <p>Vai alle impostazioni</p>
             </li>
           </div>
-          <!-- --- -->
+
+
           <div class="d-flex">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -130,33 +98,26 @@
           </div>
         </ul>
       </div>
-      <div id="text" class="col-lg-3">
+      <div class="text" class="col-lg-2">
         <p>Seleziona lingua</p>
-        <div class="btn-group w-100">
-          <button
-            class="btn dropdown-toggle d-flex align-items-center"
-            type="button"
-            id="dropdownMenuClickableOutside"
-            data-bs-toggle="dropdown"
-            data-bs-auto-close="inside"
-            aria-expanded="false"
-          >
-            lingue ...
-          </button>
-          <ul
-            class="dropdown-menu"
-            aria-labelledby="dropdownMenuClickableOutside"
-          >
-            <li><a class="dropdown-item" href="#">Dutch</a></li>
-            <li><a class="dropdown-item" href="#">English</a></li>
-            <li><a class="dropdown-item" href="#">Italian</a></li>
-            <li><a class="dropdown-item" href="#">Spanish</a></li>
-            <li><a class="dropdown-item" href="#">French</a></li>
-          </ul>
-        </div>
-      </div>
+        <div ngbDropdown class="d-inline-block">
+			<button type="button" class="btn btn-outline-secondary" id="dropdownBasic1" ngbDropdownToggle>
+				Italiano (Italiano)
+			</button>
+			<div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+				<button ngbDropdownItem>Inglese(English)</button>
+				<button ngbDropdownItem>Calabrese</button>
+				<button ngbDropdownItem>Romano</button>
+				<button ngbDropdownItem>Siciliano</button>
+			</div>
+		</div>
+	</div>
 
+      <div class="row">
+        <div class="col col-2 offset-1">
       <p class="p-0">LinkedIn Corporation &copy; 2023</p>
+    </div>
+    </div>
     </div>
   </div>
 

@@ -19,11 +19,12 @@ p {
 
 ul li a:hover{
   color: blue;
+  text-decoration: underline;
 
 }
 
-#text {
-  padding: 0px 5px 0px 0px;
+.text :hover{
+text-decoration: underline;
 }
 
 #btn-prv{
